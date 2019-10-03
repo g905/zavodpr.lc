@@ -1,7 +1,10 @@
 @import "~bootstrap/scss/bootstrap.scss"
-//@import "~aos/dist/aos.css"
-//@import "~slick-carousel/slick/slick"
+@import "~aos/dist/aos.css"
+@import "~slick-carousel/slick/slick"
 //@import "~@fancyapps/fancybox/dist/jquery.fancybox.min.css"
+
+$font-stack: -apple-system, BlinkMacSystemFont,Merriweather,'Open Sans','Helvetica Neue',sans-serif
+$font-stack-lato: -apple-system, BlinkMacSystemFont,Lato,'Open Sans','Helvetica Neue',sans-serif
 
 $trans: all .3s ease-in-out
 
@@ -12,6 +15,128 @@ $white: #fff
 $brown: #C89554
 $red: #CE0000
 $lgray: rgba(255, 255, 255, .7)
+$blue: #0e8bff
+
+// ====================================== Typo ==========================================
+
+//@font-face
+  font-family: 'Merriweather'
+  font-style: normal
+  font-weight: 400
+  src: url(../fonts/Merriweather/Merriweather-Regular.ttf)
+
+//@font-face
+  font-family: 'Lato'
+  font-style: normal
+  font-weight: 400
+  src: url(../fonts/Lato/Lato-Regular.ttf)
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6
+  padding: 0
+  color: $white
+  font-weight: 100
+  letter-spacing: 1px
+  font-family: $font-stack
+
+h1
+  font-size: 60px
+h2
+  font-size: 50px
+h3
+  font-size: 36px
+h4
+  font-size: 20px
+h5
+  font-size: 16px
+h6
+  font-size: 12px
+p
+  margin: 0 0 10px
+b,
+strong
+  font-weight: 700
+
+// ====================================== Common ========================================
+
+body
+  color: $black
+  font-size: .9rem
+  font-family: $font-stack-lato!important
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+
+section
+  margin-bottom: 100px
+  overflow: hidden
+#header, #mainmenu, #gallery
+  margin-bottom: 0
+
+ul
+  margin: auto
+  padding: 0
+
+a, nav li a
+  color: $blue
+  transition: $trans
+  &:hover
+    color: $blue
+
+.title
+  text-transform: uppercase
+
+.card-hover
+  img
+    transition: all 1s ease-out
+  &:hover
+    img
+      transform: scale(1.1)
+
+textarea:focus,
+textarea.form-control:focus,
+input.form-control:focus,
+input[type=text]:focus,
+input[type=password]:focus,
+input[type=email]:focus,
+input[type=number]:focus,
+input[type=tel]:focus,
+input[type=submit]:focus,
+[type=text].form-control:focus,
+[type=password].form-control:focus,
+[type=email].form-control:focus,
+[type=tel].form-control:focus,
+[contenteditable].form-control:focus,
+button:focus,
+li:focus,
+.btn:focus,.btn:active
+  outline: none !important
+  box-shadow: none
+
+// ====================================== Selection color ========================
+
+::selection
+  color: #000
+  text-shadow: none
+  background-color: $white
+
+// ====================================== Bootstrap reset ========================
+
+.container
+  max-width: 1280px
+.card
+  background: transparent
+  border: unset
+  cursor: pointer
+  overflow: hidden
+  .card-body
+    position: absolute
+    bottom: 0
+.card-text
+  font-size: .9rem
 
 // ====================================== Loader ==============================
 
@@ -31,3 +156,161 @@ $lgray: rgba(255, 255, 255, .7)
 .spinner-border
   border-color: $black
   border-right-color: transparent
+
+// ====================================== Animated mobile menu =============================
+
+.animated-icon1
+  width: 30px
+  height: 20px
+  position: relative
+  margin: 0px
+  transform: rotate(0deg)
+  transition: .5s ease-in-out
+  cursor: pointer
+
+.animated-icon1 span
+  display: block
+  position: absolute
+  height: 3px
+  width: 100%
+  border-radius: 9px
+  opacity: 1
+  left: 0
+  transform: rotate(0deg)
+  transition: .25s ease-in-out
+
+.animated-icon1 span
+  background: #fff
+
+.animated-icon2 span
+  background: #fff
+
+.animated-icon3 span
+  background: #fff
+
+.animated-icon1 span:nth-child(1)
+  top: 0px
+
+.animated-icon1 span:nth-child(2)
+  top: 10px
+
+.animated-icon1 span:nth-child(3)
+  top: 20px
+
+.animated-icon1.open span:nth-child(1)
+  top: 11px
+  transform: rotate(135deg)
+
+.animated-icon1.open span:nth-child(2)
+  opacity: 0
+  left: 60px
+
+.animated-icon1.open span:nth-child(3)
+  top: 11px
+  transform: rotate(-135deg)
+
+// ====================================== Social Icons =============================
+
+.social-icons li
+  list-style-type: none
+  margin-right: 5px
+  cursor: pointer
+  opacity: .7
+  transition: $trans
+  a
+    color: $black!important
+  &:hover
+    opacity: 1
+  .svg-inline--fa
+    border: 1px solid $black
+    border-radius: 15px
+    padding: 5px
+    min-width: 30px
+    min-height: 30px
+    transition: $trans
+
+// ====================================== Buttons ==================================
+
+.zavodpr-btn
+  font-size: 14px
+  color: $black
+  //background: linear-gradient($brown, $white, $brown)
+  background: $green
+  cursor: pointer
+  border-radius: 20px
+  transition: $trans
+  white-space: nowrap
+  opacity: .8
+  max-width: 200px
+  &:hover
+    opacity: 1
+
+// ====================================== Slick slider =============================
+
+.slick-slider
+  img
+    width: 500px
+    margin: auto
+
+// ====================================== Slick dots ===============================
+
+.slick-dots
+  display: flex
+  max-width: 40%
+  justify-content: center
+  list-style-type: none
+  padding: 3rem 0 1rem 0
+.slick-dots li button
+  background: $white
+  border-radius: 100%
+  border: unset
+  color: transparent
+  width: 16px
+  height: 16px
+  opacity: .5
+  margin-right: 10px
+.slick-dots li.slick-active
+  outline: none
+  button
+    background: $brown
+    opacity: 1
+
+
+
+// ====================================== SECTIONS =================================
+
+// ====================================== Main menu ================================
+
+#mainmenu
+  //position: fixed
+  top: 0
+  width: 100%
+  z-index: 9999
+  //box-shadow: 0 10px 40px rgba(0,0,0, 1)
+  nav
+    //background: $black
+    li
+      a
+        font-size: 14px
+        //color: $white
+        text-transform: uppercase
+        &:hover
+          //color: white
+
+// ====================================== Header ===================================
+
+#header
+  //background: linear-gradient($black, transparent)
+  border-bottom: 1px solid $blue
+  opacity: 1
+  //height: 110px
+  z-index: 999
+  position: relative
+  //margin-top: 20px
+  .fa-map-marker-alt
+    color: $red
+    font-size: 25px
+  .prsp
+    perspective: 500px
+  .addr-marker
+    animation: addrRotate 4s infinite ease-in

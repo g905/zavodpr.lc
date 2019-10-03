@@ -1,0 +1,31 @@
+- let icons = ["fa-viber", "fa-whatsapp", "fa-skype", "fa-vk", "fa-instagram", "fa-facebook", "fa-youtube"]
+- let menuItems = {"about": "О компании", "afisha": "Афиша", "gallery": "Фотогалерея", "services": "Услуги клуба", "info": "Новости и статьи", "about-club":"О клубе"}
+section#footer
+    .container
+        .row.d-flex.align-items-start
+            .col-12.col-lg-3.order-4.order-lg-1
+                .social-icons
+                    ul.d-flex.flex-nowrap.flex-lg-wrap.text-left.justify-content-center.w-80.mt-3.mb-3
+                        each icon in icons
+                            li
+                                a
+                                    i.fab(class=icon)
+
+            .col-12.col-lg-4.d-none.d-lg-block.order-1.order-lg-2
+                .footer-menu
+                    ul.w-80.justify-content-between.pb-3.pb-lg-0.ml-0
+                        each item, idx in menuItems
+                            li
+                                a(href='#' + idx)=item
+            .col-12.col-lg-2.d-none.d-lg-block.order-2.order-lg-3
+                .footer-contacts.text-right
+                    .hours Ежедневно <br> c 22:00 до 6:00
+                    .addr Удмуртия, г. Ижевск<br>ул. Ижевская 2
+            .col-12.col-lg-3.order-3.order-lg-4
+                .footer-btn.text-center.text-lg-right
+                    .btn.kruzheva-btn.d-block.d-lg-none Получить приглашение
+                    .tel.mb-3.mb-lg-0
+                        a(href="tel:+79128577186") +79128577186
+                    .email.mb-3
+                        a(href="mailto:login@gmail.com") login@gmail.com
+                    .btn.kruzheva-btn.float-right.d-none.d-lg-block(data-toggle="modal" data-target="#invitationModal") Получить приглашение

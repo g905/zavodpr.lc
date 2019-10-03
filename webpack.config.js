@@ -125,11 +125,11 @@ module.exports = {
             filename: 'index.html',
             template: './src/pug/views/index.pug'
         }),
-        /*new HtmlWebpackPlugin({
+        new HtmlWebpackPlugin({
             filename: 'main.html',
             template: './src/pug/views/main.pug'
         }),
-        new HtmlWebpackPlugin({
+        /*new HtmlWebpackPlugin({
             filename: 'about.html',
             template: './src/pug/views/about.pug'
         }),

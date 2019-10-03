@@ -9,10 +9,8 @@ html(lang="ru")
     body
         include ../includes/loader
         .container.mt-5
-            .row
-                .col
-                    .test
-                        .h3 Привет. Работает.
+            ul
+                +page("main.html", "Главная")
             //-ul
                 +page("main.html", "Главная")
                 +page("about.html", "О клубе")
