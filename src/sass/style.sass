@@ -1,0 +1,33 @@
+@import "~bootstrap/scss/bootstrap.scss"
+//@import "~aos/dist/aos.css"
+//@import "~slick-carousel/slick/slick"
+//@import "~@fancyapps/fancybox/dist/jquery.fancybox.min.css"
+
+$trans: all .3s ease-in-out
+
+// ====================================== Colors ========================================
+
+$black: #000
+$white: #fff
+$brown: #C89554
+$red: #CE0000
+$lgray: rgba(255, 255, 255, .7)
+
+// ====================================== Loader ==============================
+
+.loader-area
+  background: $white
+  overflow: hidden
+  position: fixed
+  left: 0
+  top: 0
+  right: 0
+  bottom: 0
+  z-index: 100000
+  div
+    position: relative
+    top: calc(50% - 25px)
+    left: calc(50% - 25px)
+.spinner-border
+  border-color: $black
+  border-right-color: transparent

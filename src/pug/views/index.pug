@@ -1,0 +1,27 @@
+mixin page(href, title)
+    li
+        h3
+            a(href=href)=title
+doctype html
+
+html(lang="ru")
+    include ../includes/head
+    body
+        include ../includes/loader
+        .container.mt-5
+            .row
+                .col
+                    .test
+                        .h3 Привет. Работает.
+            //-ul
+                +page("main.html", "Главная")
+                +page("about.html", "О клубе")
+                +page("privileges.html", "Привилегии")
+                +page("menu.html", "Меню клуба")
+                +page("vacancies.html", "Вакансии")
+                +page("gallery.html", "Галерея")
+                +page("album.html", "Альбом")
+                +page("afisha.html", "Афиша")
+                +page("news.html", "Новости")
+                +page("news-detail.html", "Новость")
+                +page("contacts.html", "Контакты")

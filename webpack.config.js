@@ -108,7 +108,7 @@ module.exports = {
             to: './fonts'
         },
             {
-                from: './src/favicon',
+                from: './src/img/favicon',
                 to: './favicon'
             },
             {
@@ -125,7 +125,7 @@ module.exports = {
             filename: 'index.html',
             template: './src/pug/views/index.pug'
         }),
-        new HtmlWebpackPlugin({
+        /*new HtmlWebpackPlugin({
             filename: 'main.html',
             template: './src/pug/views/main.pug'
         }),
@@ -168,6 +168,6 @@ module.exports = {
         new HtmlWebpackPlugin({
             filename: 'contacts.html',
             template: './src/pug/views/contacts.pug'
-        }),
+        }),*/
     ]
 };
