@@ -3,7 +3,7 @@
 @import "~slick-carousel/slick/slick"
 //@import "~@fancyapps/fancybox/dist/jquery.fancybox.min.css"
 
-$font-stack: -apple-system, BlinkMacSystemFont,Merriweather,'Open Sans','Helvetica Neue',sans-serif
+$font-stack: -apple-system, BlinkMacSystemFont,Ubuntu,'Open Sans','Helvetica Neue',sans-serif
 $font-stack-lato: -apple-system, BlinkMacSystemFont,Lato,'Open Sans','Helvetica Neue',sans-serif
 
 $trans: all .3s ease-in-out
@@ -14,10 +14,30 @@ $black: #000
 $white: #fff
 $brown: #C89554
 $red: #CE0000
-$lgray: rgba(255, 255, 255, .7)
-$blue: #0e8bff
+$lgray: #eee
+$blue: #2B5C87
+$lblue: #3f87c6
+$green: #85C752
+
+$yt: #ff0000
+$fb: #3C5A99
+$in: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%)
+$vk: #4c75a3
+$sk: #00AFF0
+$wa: #25D366
+$vi: #665CAC
 
 // ====================================== Typo ==========================================
+
+a
+  color: $black!important
+  opacity: .8
+  &:hover
+    opacity: 1
+
+a.high, .dropdown a
+  text-transform: uppercase
+  color: $blue!important
 
 //@font-face
   font-family: 'Merriweather'
@@ -25,7 +45,13 @@ $blue: #0e8bff
   font-weight: 400
   src: url(../fonts/Merriweather/Merriweather-Regular.ttf)
 
-//@font-face
+@font-face
+  font-family: 'Ubuntu'
+  font-style: normal
+  font-weight: 400
+  src: url(../fonts/ubuntu.ttf)
+
+@font-face
   font-family: 'Lato'
   font-style: normal
   font-weight: 400
@@ -38,10 +64,10 @@ h4,
 h5,
 h6
   padding: 0
-  color: $white
+  color: $black
   font-weight: 100
   letter-spacing: 1px
-  font-family: $font-stack
+  font-family: $font-stack-lato
 
 h1
   font-size: 60px
@@ -69,6 +95,7 @@ body
   font-family: $font-stack-lato!important
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
+  background: $lgray
 
 section
   margin-bottom: 100px
@@ -87,7 +114,8 @@ a, nav li a
     color: $blue
 
 .title
-  text-transform: uppercase
+  //text-transform: uppercase
+  font-weight: bold
 
 .card-hover
   img
@@ -119,9 +147,9 @@ li:focus,
 // ====================================== Selection color ========================
 
 ::selection
-  color: #000
+  color: $white
   text-shadow: none
-  background-color: $white
+  background-color: $lblue
 
 // ====================================== Bootstrap reset ========================
 
@@ -137,6 +165,10 @@ li:focus,
     bottom: 0
 .card-text
   font-size: .9rem
+.navbar-nav li:hover>.dropdown-menu
+  display: block
+.dropdown-menu
+  top: 95%
 
 // ====================================== Loader ==============================
 
@@ -154,7 +186,7 @@ li:focus,
     top: calc(50% - 25px)
     left: calc(50% - 25px)
 .spinner-border
-  border-color: $black
+  border-color: $blue
   border-right-color: transparent
 
 // ====================================== Animated mobile menu =============================
@@ -180,13 +212,13 @@ li:focus,
   transition: .25s ease-in-out
 
 .animated-icon1 span
-  background: #fff
+  background: $black
 
 .animated-icon2 span
-  background: #fff
+  background: $black
 
 .animated-icon3 span
-  background: #fff
+  background: $black
 
 .animated-icon1 span:nth-child(1)
   top: 0px
@@ -203,7 +235,7 @@ li:focus,
 
 .animated-icon1.open span:nth-child(2)
   opacity: 0
-  left: 60px
+  left: -60px
 
 .animated-icon1.open span:nth-child(3)
   top: 11px
@@ -228,13 +260,35 @@ li:focus,
     min-width: 30px
     min-height: 30px
     transition: $trans
+  .fa-youtube
+    &:hover
+      color: $yt
+  .fa-facebook
+    &:hover
+      color: $fb
+  .fa-instagram
+    &:hover
+      background: $in
+      color: $white
+  .fa-vk
+    &:hover
+      color: $vk
+  .fa-skype
+    &:hover
+      color: $sk
+  .fa-whatsapp
+    &:hover
+      color: $wa
+  .fa-viber
+    &:hover
+      background: $vi
+      color: $white
 
 // ====================================== Buttons ==================================
 
 .zavodpr-btn
   font-size: 14px
   color: $black
-  //background: linear-gradient($brown, $white, $brown)
   background: $green
   cursor: pointer
   border-radius: 20px
@@ -242,6 +296,9 @@ li:focus,
   white-space: nowrap
   opacity: .8
   max-width: 200px
+  min-width: 200px
+  line-height: 100%
+  padding: 10px
   &:hover
     opacity: 1
 
@@ -282,25 +339,20 @@ li:focus,
 // ====================================== Main menu ================================
 
 #mainmenu
-  //position: fixed
-  top: 0
   width: 100%
   z-index: 9999
-  //box-shadow: 0 10px 40px rgba(0,0,0, 1)
+  overflow: visible
+  background: $white
   nav
-    //background: $black
     li
       a
-        font-size: 14px
-        //color: $white
+        font-size: .9rem
         text-transform: uppercase
-        &:hover
-          //color: white
 
 // ====================================== Header ===================================
 
 #header
-  //background: linear-gradient($black, transparent)
+  background: $white
   border-bottom: 1px solid $blue
   opacity: 1
   //height: 110px
@@ -314,3 +366,73 @@ li:focus,
     perspective: 500px
   .addr-marker
     animation: addrRotate 4s infinite ease-in
+
+// ==================================== Carousel ===================================
+
+#carousel
+  .item
+    position: relative
+    overflow: hidden
+    min-height: 500px
+    background-size: cover
+    background-position: center
+    .container
+      min-height: 500px
+      padding: 6%
+      color: $white
+      .title
+        text-transform: unset
+        h3
+          font-family: $font-stack
+          color: $white
+          font-weight: bold
+      .content
+        h4
+          color: $white
+  .container.arrows
+    position: relative
+  .slick-arrows
+    position: absolute
+    bottom: 50px
+    right: 50px
+
+    img
+      position: absolute
+      top: -9999px
+      bottom: -9999px
+      left: -9999px
+      right: -9999px
+      margin: auto
+      z-index: -1
+
+// ===================================== Advantages ================================
+#advantages
+  .advantage
+    max-width: 250px
+    margin-bottom: 20px
+    .content
+      margin-top: 10px
+
+// ===================================== Catalog ===================================
+#catalog
+  .catalog-item
+    max-width: 400px
+    position: relative
+    &:hover
+      img
+        transform: scale(1.06) rotate(1deg)
+    img
+      width: 100%
+      height: auto
+      transition: all 3s ease-in-out
+    .card-body
+      position: absolute
+      bottom: 0px
+      padding: 30px
+      h4
+        color: $white
+
+// ====================================== PAGES ====================================
+// ====================================== index ====================================
+.index-ul
+  list-style-type: none

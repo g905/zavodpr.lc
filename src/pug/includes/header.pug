@@ -1,35 +1,21 @@
 - let icons = ["fa-viber", "fa-whatsapp", "fa-skype", "fa-vk", "fa-instagram", "fa-facebook", "fa-youtube"]
-section#header.d-none.d-lg-block
+section#header.py-2.d-none.d-lg-block
     .container
         .header-wrap
             .row.d-flex.justify-content-between.align-items-center
                 .col-3
                     .address.text-left.d-flex.align-items-center.prsp
-                        //.addr-marker.mr-3
-                            i.fas.fa-map-marker-alt
                         .addr Волоколамское Шоссе,<br>д. 116, офис 438
-                //.col-4
-                    .logo.text-center
-                        img(src="img/logo_lg.png" alt="")
-                //.col-2
-                    .contact.text-right
-                        .tel
-                            a(href="tel:+79128577186") +79128577186
-                        .email
-                            a(href="mailto:login@gmail.com") login@gmail.com
-                //.col-2
-                    .hours.text-right Ежедневно <br> c 22:00 до 6:00
-
                 .col-6
                     .contacts.d-flex.justify-content-around
                         .request-price
-                            a Запросить прайс
+                            a.high(href="#") Запросить прайс
                         .email
                             a(href="mailto:login@gmail.com") login@gmail.com
                         .tel
                             a(href="tel:+79128577186") +79128577186
                         .request-callback
-                            a Заказать звонок
+                            a.high(href="#") Заказать звонок
                 .col-3
                     .social-icons.d-none.d-lg-block
                         ul.d-flex.justify-content-end

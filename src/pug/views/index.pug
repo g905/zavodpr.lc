@@ -1,7 +1,7 @@
 mixin page(href, title)
     li
         h3
-            a(href=href)=title
+            a.high(href=href)=title
 doctype html
 
 html(lang="ru")
@@ -9,7 +9,7 @@ html(lang="ru")
     body
         include ../includes/loader
         .container.mt-5
-            ul
+            ul.index-ul
                 +page("main.html", "Главная")
             //-ul
                 +page("main.html", "Главная")

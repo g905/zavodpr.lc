@@ -1,30 +1,48 @@
 - let icons = ["fa-viber", "fa-whatsapp", "fa-skype", "fa-vk", "fa-instagram", "fa-facebook", "fa-youtube"]
-- let menuItems = {"about": "О компании", "afisha": "Афиша", "gallery": "Фотогалерея", "services": "Услуги клуба", "info": "Новости и статьи", "about-club":"О клубе"}
+- let menuItems = {"about": {"name":"О компании", "one": "Раз", "two":"Два", "three":"Три"}, "delivery": "Доставка", "catalog": "Каталог продукции", "news": "Новости", "articles": "Статьи", "contacts":"Контакты", "calculator": "Калькулятор"}
 section#mainmenu
     .container.p-0
         nav.navbar.navbar-expand-lg
-            a.navbar-brand(href="#").d-block.d-lg-none
-                .adaptive-logo.w-50
-                    img(src="img/logo_sm.png" alt="")
-            .social-icons.d-none.d-lg-block
-                ul.d-flex.text-left
-                    each icon in icons
-                        li
-                            a
-                                i.fab(class=icon)
             button.navbar-toggler.nav-button(type="button" data-toggle="collapse" data-target="#navbar1" aria-controls="navbar1" aria-expanded="false" aria-label="Toggle navigation")
                 .animated-icon1
                     span
                     span
                     span
-            .collapse.navbar-collapse.text-center#navbar1
-                ul.navbar-nav.m-auto.d-flex.justify-content-between
-                    each item, idx in menuItems
-                        li.nav-item
-                            a.nav-link(href='' + idx)=item
+            a.navbar-brand(href="#")
+                .adaptive-logo.w-50
+                    img(src="img/Главная/logo.png" alt="")
 
-                .invite-button.mt-5.mt-lg-0.ml-0.ml-lg-5
+            //.social-icons.d-none.d-lg-block
+                ul.d-flex.text-left
+                    each icon in icons
+                        li
+                            a
+                                i.fab(class=icon)
+            .search-btn
+                i.fas.fa-search.d-block.d-lg-none(style="font-size: 1.5rem")
+
+            .collapse.navbar-collapse.text-center#navbar1
+                ul.navbar-nav.m-auto.d-flex.w-75.justify-content-around
+                    each item, idx in menuItems
+                        if typeof(item) === 'object'
+                            li.nav-item.dropdown
+                                a.nav-link.dropdown-toggle(href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")=item.name
+                                .dropdown-menu(aria-labelledby="navbarDropdown")
+                                    each item2, idx2 in item
+                                        if idx2 === 'name'
+                                            return
+                                        else
+                                            a.dropdown-item(href=""+idx2)=item2
+                        else
+                            li.nav-item
+                                a.high.nav-link(href='' + idx)=item
+
+                .search-btn
+                    i.fas.fa-search.d-none.d-lg-block(style="font-size: 1.3rem; opacity: .8")
+
+                //.invite-button.mt-5.mt-lg-0.ml-0.ml-lg-5
                     .btn.zavodpr-btn(data-toggle="modal" data-target="#invitationModal") Получить приглашение
+
                 .mob-block.d-block.d-lg-none
                     .contacts-mob.mt-4.d-flex.justify-content-between
                         .addr.text-left Удмуртия, г. Ижевск<br>ул. Ижевская 2

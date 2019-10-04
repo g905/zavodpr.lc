@@ -1,0 +1,16 @@
+section#carousel
+    .slider.carousel
+        - let n = 1
+        while n < 5
+            .item(style="background-image: url('img/Главная/banner-" + n + ".png')" id = 'slickItem' + n)
+                .container
+                    .title.mb-5
+                        h3="Депрессорно-диспергирующие присадки для дизельного топлива: ангители и концентраты " + n
+                    .content.mb-5
+                        h4 И другие присадки для дизельного топлива
+                    .bottom
+                        a.btn.zavodpr-btn(href="#") Подробнее
+            - n++
+    .container.arrows.d-none.d-lg-block
+        .slick-arrows
+

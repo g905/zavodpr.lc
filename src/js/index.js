@@ -24,4 +24,27 @@ $(()=>{
 // ====================================== Loader ===============================================
 
     $('.loader-area').fadeOut().end().delay(400).fadeOut('slow');
+
+// ========================================= Navbar icon animation =================================
+
+    $('.nav-button').on('click', function () {
+        $('.animated-icon1').toggleClass('open');
+    });
+
+// ====================================== Slick sliders ========================================
+
+    let slickCarousel = {
+        useTransform: true,
+        "infinite": true,
+        "arrows": true,
+        "dots": false,
+        "autoplay": true,
+        "slidesToShow": 1,
+        "cssEase": "ease-out",
+        "appendArrows": $('.slick-arrows')
+    };
+
+    $('.carousel').slick(slickCarousel);
+
+
 });
