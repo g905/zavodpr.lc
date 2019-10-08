@@ -1,0 +1,23 @@
+section.mt-5#team
+    .container.p-0
+        .title.text-center.mb-5
+            h3 Наша команда
+        .slick-team.w-100.text-center.d-lg-flex.align-items-lg-center.justify-content-lg-between
+            - let n = 1
+            while n < 5
+                .item.card.card-team.w-100
+                    img.img-fluid(src="img/Главная/img-person-short-"+n+".png")
+                    .card-body.card-body-team
+                        .title
+                            h4 Константин Алексеевич Геращенко
+                        .specialization
+                            p Руководитель отдела продаж
+                        .email
+                            p Email:<br>
+                                a(href="mailto:login@email.com") login@email.com
+                        .phone
+                            p Номер телефона:<br>
+                                a(href="tel:+79128577186") +79128577186
+                        .msg
+                            .btn.zavodpr-btn.transparent Написать сообщение
+                - n++

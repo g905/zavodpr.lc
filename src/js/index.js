@@ -44,7 +44,43 @@ $(()=>{
         "appendArrows": $('.slick-arrows')
     };
 
-    $('.carousel').slick(slickCarousel);
+    let slickSolutions = {
+        infinite: false,
+        arrows: true,
+        dots: false,
+        autoplay: false,
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        appendArrows: $('.slick-arrows-solutions'),
+        responsive: [{
+            breakpoint: '768',
+            settings: {
+                arrows: false,
+                dots: true,
+                slidesToShow: 1
+            }
+        }]
+    };
 
+    let slickTeam = {
+        infinite: false,
+        arrows: true,
+        dots: false,
+        autoplay: false,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        responsive: [{
+            breakpoint: '768',
+            settings: {
+                arrows: false,
+                dots: true,
+                slidesToShow: 1
+            }
+        }]
+    };
+
+    $('.carousel').slick(slickCarousel);
+    $('.slick-solutions').slick(slickSolutions);
+    $('.slick-team').slick(slickTeam);
 
 });

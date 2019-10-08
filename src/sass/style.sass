@@ -10,7 +10,7 @@ $trans: all .3s ease-in-out
 
 // ====================================== Colors ========================================
 
-$black: #000
+$black: #061C2E
 $white: #fff
 $brown: #C89554
 $red: #CE0000
@@ -91,7 +91,7 @@ strong
 
 body
   color: $black
-  font-size: .9rem
+  font-size: 1.1rem
   font-family: $font-stack-lato!important
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
@@ -301,7 +301,11 @@ li:focus,
   padding: 10px
   &:hover
     opacity: 1
-
+.transparent
+  background: transparent!important
+  color: #fff!important
+  border: 2px solid $white
+  font-weight: bold
 // ====================================== Slick slider =============================
 
 .slick-slider
@@ -318,19 +322,17 @@ li:focus,
   list-style-type: none
   padding: 3rem 0 1rem 0
 .slick-dots li button
-  background: $white
+  background: $lgray
   border-radius: 100%
   border: unset
   color: transparent
   width: 16px
   height: 16px
-  opacity: .5
   margin-right: 10px
 .slick-dots li.slick-active
   outline: none
   button
-    background: $brown
-    opacity: 1
+    background: $lblue
 
 
 
@@ -355,7 +357,7 @@ li:focus,
   background: $white
   border-bottom: 1px solid $blue
   opacity: 1
-  //height: 110px
+  font-size: .9rem
   z-index: 999
   position: relative
   //margin-top: 20px
@@ -431,6 +433,85 @@ li:focus,
       padding: 30px
       h4
         color: $white
+
+// ================================ Complete Solutions =============================
+#complete_solutions
+  background: $white
+  .card-solutions
+    .card-body
+      position: relative
+  .item
+    max-width: 300px
+
+// ====================================== About ====================================
+#about
+  background: $white
+
+// ====================================== Team =====================================
+#team
+  .item
+    max-width: 370px
+    &:hover
+      img
+        transform: scale(1.06) rotate(1deg)
+    img
+      transition: all 3s ease-in-out
+    .card-body-team
+      color: $white
+      text-align: left
+      transition: $trans
+      bottom: -180px
+      background: linear-gradient(transparent, $black)
+      h4
+        color: $white
+      a
+        color: $white!important
+    &:hover
+      .card-body-team
+        bottom: 0
+
+@media screen and (max-width: 768px)
+  #team
+    background: $white
+
+// ====================================== Stages ===================================
+#stages
+  background: $blue
+  h4
+    color: $white
+  .stage
+    &:not(.empty)
+      max-width: 25%
+      min-width: 20%
+  .end-white, .end-blue
+    position: relative
+    height: 150px !important
+    padding-left: 30px
+    padding-right: 10px
+  .end-white
+    background: $white
+  .end-blue
+    background: $blue
+    color: $white
+  .end-white, .end-blue
+    &::after
+      z-index: 99
+      content: ''
+      position: absolute
+      top: 0%
+      left: 100%
+      margin-left: 0px
+      width: 0
+      height: 0
+      border-top: solid 75px transparent
+      border-bottom: solid 75px transparent
+      border-right: solid 30px transparent
+  .end-white
+    &::after
+      border-left: solid 30px $white
+  .end-blue
+    &::after
+      border-left: solid 30px $blue
 
 // ====================================== PAGES ====================================
 // ====================================== index ====================================

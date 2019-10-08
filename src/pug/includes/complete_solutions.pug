@@ -1,0 +1,17 @@
+section.py-5.mb-0#complete_solutions
+    .container
+        .row.mb-5.align-items-center
+            .col-12.col-lg-4
+                .title.text-center.text-lg-left
+                    h3 Готовые решения
+            .col-0.col-lg-8.text-right.d-none.d-lg-block
+                .slick-arrows-solutions
+
+        .slick-solutions
+            - let n = 0
+            while n < 5
+                .card-solutions
+                    img.img-fluid(src="img/Главная/img-barrel.png")
+                    .card-body.text-center
+                        h4="Название в две строчки или больше " + n
+                    - n++
