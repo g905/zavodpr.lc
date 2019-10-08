@@ -1,5 +1,5 @@
-- let icons = ["fa-viber", "fa-whatsapp", "fa-skype", "fa-vk", "fa-instagram", "fa-facebook", "fa-youtube"]
-- let menuItems = {"about": {"name":"О компании", "one": "Раз", "two":"Два", "three":"Три"}, "delivery": "Доставка", "catalog": "Каталог продукции", "news": "Новости", "articles": "Статьи", "contacts":"Контакты", "calculator": "Калькулятор"}
+include ./mixins
+- let menuItems = {"about": {"name":"О компании", "team": "Команда", "two":"Документы", "three":"Реквизиты", "four": "Вопрос-ответ", "five": "Партнеры"}, "delivery": "Доставка", "catalog": "Каталог продукции", "news": "Новости", "articles": "Статьи", "contacts":"Контакты", "calculator": "Калькулятор"}
 section#mainmenu
     .container.p-0
         nav.navbar.navbar-expand-lg
@@ -56,7 +56,4 @@ section#mainmenu
 
                     .social-icons.d-block.d-lg-none.mt-4
                         ul.d-flex.justify-content-center
-                            each icon in icons
-                                li
-                                    a
-                                        i.fab(class=icon)
+                            +socialIcons

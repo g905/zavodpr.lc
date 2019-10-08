@@ -1,0 +1,36 @@
+mixin page(href, title)
+    li
+        h3
+            a.high(href=href)=title
+
+mixin breadcrumbs(crumbs)
+    .container.breadcrumb-container.d-flex.align-items-center
+        each crumb, idx in crumbs
+            if idx+1 === crumbs.length
+                .breadcrumb-item.breadcrumb-active
+                    p=crumb.title
+            else
+                .breadcrumb-item
+                    a(href=''+crumb.href)=crumb.title
+                .breadcrumb-divider &rsaquo;
+
+mixin socialIcons
+    - let icons = ["fa-viber", "fa-whatsapp", "fa-skype", "fa-vk", "fa-instagram", "fa-facebook", "fa-youtube"]
+    each icon in icons
+        li
+            a
+                i.fab(class=icon)
+
+mixin feedback(page)
+    - let bg = ''
+    if page === 'about'
+        - bg = 'bg-white'
+    section.m-0(class=bg)#feedback
+        .container
+            .row
+                .col-12.col-lg-6.p-0
+                    .form-wrap
+                        .title.pt-5.text-center.text-lg-left
+                            h3 Форма обратной связи
+                .col-12.col-lg-6.d-none.d-lg-block.p-0.text-left
+                    img.img-fluid(src="img/Главная/img-conversation.png")

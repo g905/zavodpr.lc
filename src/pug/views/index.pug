@@ -1,7 +1,5 @@
-mixin page(href, title)
-    li
-        h3
-            a.high(href=href)=title
+include ../includes/mixins
+
 doctype html
 
 html(lang="ru")
@@ -11,6 +9,7 @@ html(lang="ru")
         .container.mt-5
             ul.index-ul
                 +page("main.html", "Главная")
+                +page("about.html", "О компании")
             //-ul
                 +page("main.html", "Главная")
                 +page("about.html", "О клубе")

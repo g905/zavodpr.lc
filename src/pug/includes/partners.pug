@@ -1,0 +1,12 @@
+section#partners
+    .container
+        .partners.title-row.d-flex.align-items-center.justify-content-between.mb-3
+            .title
+                h3 Наши партнеры
+            .slick-arrows#arrowsPartners
+        .slick-partners
+            - let n = 1
+            while n <= 6
+                .item.partner
+                    img(src="/img/О%20компании/partner-"+n+".png")
+                - n++

@@ -98,7 +98,7 @@ body
   background: $lgray
 
 section
-  margin-bottom: 100px
+  margin-bottom: 50px
   overflow: hidden
 #header, #mainmenu, #gallery
   margin-bottom: 0
@@ -272,7 +272,8 @@ li:focus,
       color: $white
   .fa-vk
     &:hover
-      color: $vk
+      background: $vk
+      color: $white
   .fa-skype
     &:hover
       color: $sk
@@ -447,6 +448,10 @@ li:focus,
 #about
   background: $white
 
+// ==================================== Feedback ===================================
+.bg-white
+  background: $white
+
 // ====================================== Team =====================================
 #team
   .item
@@ -477,7 +482,7 @@ li:focus,
 // ====================================== Stages ===================================
 #stages
   background: $blue
-  h4
+  h3
     color: $white
   .stage
     &:not(.empty)
@@ -486,7 +491,7 @@ li:focus,
   .end-white, .end-blue
     position: relative
     height: 150px !important
-    padding-left: 30px
+    padding-left: 40px
     padding-right: 10px
   .end-white
     background: $white
@@ -512,6 +517,54 @@ li:focus,
   .end-blue
     &::after
       border-left: solid 30px $blue
+
+// ====================================== Info =====================================
+#info
+  .info-item
+    max-width: 95%
+    .card
+      background: $white
+      .card-title
+        padding: 20px 20px 0 20px
+        margin: 0
+      .card-body
+        position: relative
+        top: 0
+      .card-footer
+        img
+          width: 100%
+          height: 100%
+  .back
+    position: absolute
+    left: 0
+    right: 0
+    height: 40%
+    background: #DAEEFF
+
+// ==================================== Partners ===================================
+#partners
+  .item.partner
+    img
+      max-width: 95%
+
+// =================================== Breadcrumbs =================================
+#breadcrumb
+  color: #828282
+  margin-top: 50px
+  margin-bottom: 50px
+  p
+    margin: 0
+  .breadcrumb-item
+    padding: 0 10px
+
+// ===================================== Footer ====================================
+footer
+  background: $white
+  ul
+    list-style-type: none
+  .copyright
+    position: absolute
+    bottom: 0
 
 // ====================================== PAGES ====================================
 // ====================================== index ====================================
