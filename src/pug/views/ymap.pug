@@ -1,0 +1,17 @@
+extends ../includes/layout
+include ../includes/mixins
+
+block content
+    - let crumbs = [{"href": "#", "title": "Главная"}, {"href": "#", "title": "Карты"}, {"href": "#", "title": "Я.Карты js api"}]
+    +breadcrumbs(crumbs)
+
+    section#ymapsControls
+        form(method="" action="")#ymapsForm
+            input(type="text" name="from" placeholder="Откуда")
+            input(type="text" name="to" placeholder="Куда")
+            button.btn.zavodpr-btn(type="submit" name="btnSubmit")#ymapChange Построить
+        .distance#distance
+
+    section#sectionYmaps.bg-white
+        .container-fluid.p-0
+            #ymapsContainer

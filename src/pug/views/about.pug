@@ -2,7 +2,8 @@ extends ../includes/layout
 include ../includes/mixins
 
 block content
-    include ../includes/breadcrumb
+    - let crumbs = [{"href": "#", "title": "Главная"}, {"href": "#", "title": "О компании"}]
+    +breadcrumbs(crumbs)
     include ../includes/carousel
 
     section#topContent.mb-5

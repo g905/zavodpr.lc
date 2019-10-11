@@ -133,6 +133,10 @@ module.exports = {
             filename: 'about.html',
             template: './src/pug/views/about.pug'
         }),
+        new HtmlWebpackPlugin({
+            filename: 'ymap.html',
+            template: './src/pug/views/ymap.pug'
+        }),
         /*new HtmlWebpackPlugin({
             filename: 'privileges.html',
             template: './src/pug/views/privileges.pug'

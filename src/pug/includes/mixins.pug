@@ -4,15 +4,15 @@ mixin page(href, title)
             a.high(href=href)=title
 
 mixin breadcrumbs(crumbs)
-    .container.breadcrumb-container.d-flex.align-items-center
-        each crumb, idx in crumbs
-            if idx+1 === crumbs.length
-                .breadcrumb-item.breadcrumb-active
-                    p=crumb.title
-            else
-                .breadcrumb-item
-                    a(href=''+crumb.href)=crumb.title
-                .breadcrumb-divider &rsaquo;
+    section#breadcrumb
+        .container.breadcrumb-container.d-flex.align-items-center
+            each crumb, idx in crumbs
+                if idx+1 === crumbs.length
+                    .breadcrumb-item.breadcrumb-active=crumb.title
+                else
+                    .breadcrumb-item
+                        a(href=''+crumb.href)=crumb.title
+                    .breadcrumb-divider &rsaquo;
 
 mixin socialIcons
     - let icons = ["fa-viber", "fa-whatsapp", "fa-skype", "fa-vk", "fa-instagram", "fa-facebook", "fa-youtube"]

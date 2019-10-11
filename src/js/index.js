@@ -12,7 +12,7 @@ import { faViber, faSkype, faWhatsapp, faVk, faYoutube, faFacebook, faInstagram 
 import { faMapMarkerAlt, faSearch, faChevronDown } from '@fortawesome/free-solid-svg-icons'
 library.add( faViber, faSkype, faWhatsapp, faVk, faYoutube, faFacebook, faInstagram, faMapMarkerAlt, faSearch, faChevronDown );
 
-// ====================================== Replace fa-icons with SVGs ===============================
+// ====================================== Replace fa-icons with SVGs ===========================
 dom.watch();
 
 $(()=>{
@@ -25,11 +25,63 @@ $(()=>{
 
     $('.loader-area').fadeOut().end().delay(400).fadeOut('slow');
 
-// ========================================= Navbar icon animation =================================
+// ====================================== Navbar icon animation ================================
 
     $('.nav-button').on('click', function () {
         $('.animated-icon1').toggleClass('open');
     });
+
+// ====================================== YMaps ================================================
+
+    $( document ).ready(()=>{ymaps.ready(init)});
+    function init(){
+        let myMap = new ymaps.Map("ymapsContainer", {
+            center: [55.76, 37.64],
+            zoom: 7,
+            controls: []
+        });
+
+        let route = new ymaps.multiRouter.MultiRoute({
+            referencePoints: [
+                'Москва',
+                'Ижевск',
+            ]
+        },
+            {
+                boundsAutoApply: true
+            });
+
+        myMap.behaviors.disable('scrollZoom');
+
+        myMap.geoObjects.add(route);
+
+        route.events.add("boundschange", ()=>{
+            myMap.setBounds(route.getBounds(), {
+                checkZoomRange: true
+            })
+        });
+
+        $('#ymapsForm').submit(function(e) {
+            e.preventDefault();
+            //console.log($(e.target).serializeArray());
+            let form = $(e.target).serializeArray();
+            let from = form[0].value;
+            let to = form[1].value;
+            let points = [];
+            console.log(from, to);
+            if(from !== "" && to !== ""){
+                points.push(from, to);
+                route.model.setReferencePoints(points);
+                ymaps.route(points).done(function (router) {
+                    $('#distance').text(Math.round(router.getLength()/1000) + " км");
+                    console.log(router.getHumanLength()); // длина маршрута
+                    //console.log(route.getHumanTime()); // сколько примерно повремени
+                });
+            }
+        });
+
+    }
+
 
 // ====================================== Slick sliders ========================================
 
