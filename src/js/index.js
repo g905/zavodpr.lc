@@ -61,27 +61,65 @@ $(()=>{
             })
         });
 
-        $('#ymapsForm').submit(function(e) {
+        function setData(data) {
+            $('.small').text('');
+            let from = data[0].value;
+            let to = data[1].value;
+
+            let result = {};
+
+            if(from === "") {
+                result.res = 'error';
+                result.item = 'from';
+            } else
+            if(to === "") {
+                result.res = 'error';
+                result.item = 'to';
+            } else {
+                result.res = 'success';
+                result.from = from;
+                result.to = to;
+            }
+
+            return result;
+        }
+
+        $('#ymapsForm').submit((e)=>{
+            $('.preloader').css('display', 'block');
             e.preventDefault();
             //console.log($(e.target).serializeArray());
-            let form = $(e.target).serializeArray();
-            let from = form[0].value;
-            let to = form[1].value;
+
+            let data = setData($(e.target).serializeArray());
+
             let points = [];
-            console.log(from, to);
-            if(from !== "" && to !== ""){
-                points.push(from, to);
+            if(data.res === 'success'){
+                points.push(data.from, data.to);
                 route.model.setReferencePoints(points);
-                ymaps.route(points).done(function (router) {
-                    $('#distance').text(Math.round(router.getLength()/1000) + " км");
-                    console.log(router.getHumanLength()); // длина маршрута
-                    //console.log(route.getHumanTime()); // сколько примерно повремени
-                });
+                ymaps.route(points)
+                    .done((router)=>{
+                        $('#distance').text(Math.round(router.getLength()/1000) + " км");
+                        console.log(router.getHumanLength()); // длина маршрута
+                        //console.log(route.getHumanTime()); // сколько примерно повремени
+                        $('.preloader').css('display', 'none');
+                    }, (err)=>{
+                        $('.preloader').css('display', 'none');
+                        console.log(err.message);
+                    })
+            } else {
+                $('.preloader').css('display', 'none');
+                $('#'+data.item+'Help').text('Ошибка');
             }
         });
 
     }
 
+// ======================================== Calculator =========================================
+    $('#calcBtn').click(()=>{
+        $('#calculator').toggleClass('calc-show')
+    });
+    $('#closeCalcBtn').click(()=>{
+        $('#calculator').removeClass('calc-show')
+    });
 
 // ====================================== Slick sliders ========================================
 

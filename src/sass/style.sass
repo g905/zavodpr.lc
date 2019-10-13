@@ -562,9 +562,73 @@ footer
   background: $white
   ul
     list-style-type: none
-  .copyright
-    position: absolute
-    bottom: 0
+
+// =================================== Calculator ==================================
+
+#calculator
+  position: fixed
+  right: -580px
+  height: 100%
+  z-index: 99999
+  top: 0
+  transition: $trans
+  .btns
+    width: 70px
+    background: transparent
+    .btns-wrap
+      position: relative
+      top: 15%
+      box-shadow: 0 0 30px rgba(0,0,0,.6)
+      z-index: 99
+  .content
+    width: 580px
+    background: $white
+    z-index: 999
+    position: relative
+    .preloader
+      width: 100%
+      height: 100%
+      opacity: .5
+      top: 0
+      left: 0
+      position: absolute
+      z-index: 999
+      background: white
+      display: none
+      transition: $trans
+  .rightBtn
+    background: white
+    border: 0
+    width: 100%
+    height: 70px
+    position: relative
+    border-bottom: 2px solid $lgray
+    svg
+      color: #bab9b9
+      opacity: .9
+      transition: $trans
+    &:hover
+      svg
+        color: $blue
+        opacity: 1
+.calc-show
+  right: 0!important
+.close-btn
+  font-size: 1.5rem
+  opacity: .5
+  cursor: pointer
+  transition: $trans
+  &:hover
+    opacity: 1
+#sectionYmapsForm
+  height: 600px
+  #ymapsForm
+    .form-group
+      .small
+        text-align: right
+        font-size: .8rem
+
+// ====================================== Modal ====================================
 
 // ====================================== PAGES ====================================
 // ====================================== index ====================================
@@ -573,5 +637,14 @@ footer
 
 // ====================================== YMaps ====================================
 #ymapsContainer
+  position: absolute
+  bottom: 0
   width: 100%
-  height: 300px
+  height: 40%
+
+// ====================================== Team =====================================
+.member-card
+  border-bottom: 1px solid #e5e5e5
+  .name
+    font-weight: bold
+    font-size: 1.3rem

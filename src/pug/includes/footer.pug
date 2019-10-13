@@ -1,10 +1,9 @@
-//- let menuItems = {"about": {"name":"О компании", "team": "Команда", "two":"Документы", "three":"Реквизиты", "four": "Вопрос-ответ", "five": "Партнеры"}, "delivery": "Доставка", "catalog": "Каталог продукции", "news": "Новости", "articles": "Статьи", "contacts":"Контакты", "calculator": "Калькулятор"}
 footer.p-5
     .container
         .row.d-flex.align-items-top
-            .col-12.col-lg-4.order-4.order-lg-1
+            .col-12.col-lg-4.order-4.order-lg-1.d-flex.flex-column.justify-content-between
                 .social-icons
-                    ul.d-flex.flex-nowrap.flex-lg-wrap.text-left.justify-content-start.w-80.my-3
+                    ul.d-flex.flex-nowrap.flex-lg-wrap.text-left.justify-content-start.w-80.my-0
                         +socialIcons
                 .confidential.mt-5
                     a(href="#") Политика конфиденциальности
@@ -12,10 +11,10 @@ footer.p-5
                     .mt-3.p-0 &copy; 2019 Все права защищены
 
             .col-12.col-lg-2.d-none.d-lg-block.order-1.order-lg-2
-                .footer-menu
+                .footer-menu.d-flex.flex-column.justify-content-between.h-100
                     .title
                         h4 О компании
-                    ul.w-80.justify-content-between.pb-3.pb-lg-0.ml-0
+                    ul.d-flex.flex-column.justify-content-between.m-0
                         each item, idx in menuItems.about
                             if idx === 'name'
                                 return
@@ -23,10 +22,10 @@ footer.p-5
                                 li
                                     a(href='#' + idx)=item
             .col-12.col-lg-2.d-none.d-lg-block.order-1.order-lg-2
-                .footer-menu
+                .footer-menu.d-flex.flex-column.justify-content-between.h-100
                     .title
                         h4 Меню
-                    ul.w-80.justify-content-between.pb-3.pb-lg-0.ml-0
+                    ul.d-flex.flex-column.justify-content-between.m-0
                         each item, idx in menuItems
                             if idx === 'about' || idx === 'calculator'
                                 return
@@ -35,7 +34,7 @@ footer.p-5
                                     a(href='#' + idx)=item
             .offset-1.order-3
             .col-12.col-lg-2.d-none.d-lg-block.order-2.order-lg-3
-                .footer-contacts.text-right.d-flex.flex-wrap.align-items-start.justify-content-end.h-100
+                .footer-contacts.text-right.d-flex.flex-column.justify-content-between.h-100
                     .title
                         h4 Контакты
                     .tel

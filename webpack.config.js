@@ -137,15 +137,15 @@ module.exports = {
             filename: 'ymap.html',
             template: './src/pug/views/ymap.pug'
         }),
+        new HtmlWebpackPlugin({
+            filename: 'team.html',
+            template: './src/pug/views/team.pug'
+        }),
+        new HtmlWebpackPlugin({
+            filename: 'partners.html',
+            template: './src/pug/views/partners.pug'
+        }),
         /*new HtmlWebpackPlugin({
-            filename: 'privileges.html',
-            template: './src/pug/views/privileges.pug'
-        }),
-        new HtmlWebpackPlugin({
-            filename: 'menu.html',
-            template: './src/pug/views/menu.pug'
-        }),
-        new HtmlWebpackPlugin({
             filename: 'vacancies.html',
             template: './src/pug/views/vacancies.pug'
         }),

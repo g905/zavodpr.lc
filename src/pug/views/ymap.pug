@@ -2,16 +2,18 @@ extends ../includes/layout
 include ../includes/mixins
 
 block content
-    - let crumbs = [{"href": "#", "title": "Главная"}, {"href": "#", "title": "Карты"}, {"href": "#", "title": "Я.Карты js api"}]
+    - includeYmaps = true
+    - let crumbs = [{"href": "#", "title": "Главная"}, {"href": "#", "title": "Карты"}, {"href": "#", "title": "Калькулятор"}]
     +breadcrumbs(crumbs)
 
-    section#ymapsControls
-        form(method="" action="")#ymapsForm
-            input(type="text" name="from" placeholder="Откуда")
-            input(type="text" name="to" placeholder="Куда")
-            button.btn.zavodpr-btn(type="submit" name="btnSubmit")#ymapChange Построить
-        .distance#distance
+    section#ymapsControls.m-0.p-5
+        .container
+            form(method="" action="")#ymapsForm
+                input(type="text" name="from" placeholder="Откуда")
+                input(type="text" name="to" placeholder="Куда")
+                button.btn.zavodpr-btn(type="submit" name="btnSubmit")#ymapChange Построить
+            .distance#distance
 
-    section#sectionYmaps.bg-white
+    section#sectionYmaps.m-0
         .container-fluid.p-0
             #ymapsContainer
