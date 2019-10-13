@@ -133,10 +133,10 @@ module.exports = {
             filename: 'about.html',
             template: './src/pug/views/about.pug'
         }),
-        new HtmlWebpackPlugin({
+        /*new HtmlWebpackPlugin({
             filename: 'ymap.html',
             template: './src/pug/views/ymap.pug'
-        }),
+        }),*/
         new HtmlWebpackPlugin({
             filename: 'team.html',
             template: './src/pug/views/team.pug'
@@ -145,15 +145,15 @@ module.exports = {
             filename: 'partners.html',
             template: './src/pug/views/partners.pug'
         }),
+        new HtmlWebpackPlugin({
+            filename: 'requisites.html',
+            template: './src/pug/views/requisites.pug'
+        }),
+        new HtmlWebpackPlugin({
+            filename: 'faq.html',
+            template: './src/pug/views/faq.pug'
+        }),
         /*new HtmlWebpackPlugin({
-            filename: 'vacancies.html',
-            template: './src/pug/views/vacancies.pug'
-        }),
-        new HtmlWebpackPlugin({
-            filename: 'gallery.html',
-            template: './src/pug/views/gallery.pug'
-        }),
-        new HtmlWebpackPlugin({
             filename: 'album.html',
             template: './src/pug/views/album.pug'
         }),

@@ -87,7 +87,6 @@ $(()=>{
         $('#ymapsForm').submit((e)=>{
             $('.preloader').css('display', 'block');
             e.preventDefault();
-            //console.log($(e.target).serializeArray());
 
             let data = setData($(e.target).serializeArray());
 
