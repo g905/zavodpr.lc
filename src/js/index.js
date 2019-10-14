@@ -113,12 +113,26 @@ $(()=>{
     }
 
 // ======================================== Calculator =========================================
-    $('#calcBtn').click(()=>{
-        $('#calculator').toggleClass('calc-show')
+    var closeCalc = ()=>{
+        console.log('close it');
+        $('#calculator').removeClass('calc-show');
+        $('.screen').removeClass('screen-show');
+        jQuery('.rightBtn a').removeClass('active');
+    };
+
+    $('.rightBtn').click((e)=>{
+        if(!$('#calculator').hasClass('calc-show')) {
+            $('#calculator').addClass('calc-show');
+            $('.screen').addClass('screen-show')
+        } else if ($(e.target).closest('a').hasClass('active')) {
+            closeCalc()
+        } else {
+            return true;
+        }
     });
-    $('#closeCalcBtn').click(()=>{
-        $('#calculator').removeClass('calc-show')
-    });
+    $('.close-btn').click(closeCalc());
+
+    $('.screen').click(closeCalc());
 
 // ====================================== Slick sliders ========================================
 
