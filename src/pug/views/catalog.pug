@@ -1,0 +1,59 @@
+extends ../includes/layout
+include ../includes/mixins
+
+block content
+    - let crumbs = [{"href": "#", "title": "Главная"}, {"href": "#", "title": "Каталог продукции"}]
+    +breadcrumbs(crumbs)
+
+    section#catalog.mb-5
+        .container
+            .title.mb-5
+                h3 Каталог продукции
+            .row.catalog-tabd
+                .col-12.col-lg-4
+                    .card.catalog-card
+                        img.img-filter.img-fluid(src="img/Каталог%20оборудования/info-engine.png")
+                        .card-title.mt-5
+                            h4 Для дизельного топлива
+                        .card-body
+                            ul
+                                li
+                                    a(href="#") Депрессорно-диспергирующие
+                                li
+                                    a(href="#") Противоизносная (смазывающая) «BRAVOS Oiling»
+                                li
+                                    a(href="#") Цетаноповышающая «BRAVOS Cetane»
+                .col-12.col-lg-4
+                    .card.catalog-card
+                        img.img-fluid(src="img/Каталог%20оборудования/info-petrol-station.png")
+                        .card-title.mt-5
+                            h4 Для дизельного топлива
+                        .card-body
+                            ul
+                                li
+                                    a(href="#") Депрессорно-диспергирующие
+                                li
+                                    a(href="#") Противоизносная (смазывающая) «BRAVOS Oiling»
+                                li
+                                    a(href="#") Цетаноповышающая «BRAVOS Cetane»
+                .col-12.col-lg-4
+                    .card.catalog-card
+                        img.img-fluid(src="img/Каталог%20оборудования/info-oil-pomp.png")
+                        .card-title.mt-5
+                            h4 Для дизельного топлива
+                        .card-body
+                            ul
+                                li
+                                    a(href="#") Депрессорно-диспергирующие
+                                li
+                                    a(href="#") Противоизносная (смазывающая) «BRAVOS Oiling»
+                                li
+                                    a(href="#") Цетаноповышающая «BRAVOS Cetane»
+                                li
+                                    a(href="#") Противоизносная (смазывающая) «BRAVOS Oiling»
+                                li
+                                    a(href="#") Депрессорно-диспергирующие
+                                li
+                                    a(href="#") Цетаноповышающая «BRAVOS Cetane»
+                                li
+                                    a(href="#") Противоизносная (смазывающая) «BRAVOS Oiling»

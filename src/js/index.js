@@ -3,6 +3,7 @@ import 'popper.js';
 import 'bootstrap';
 import 'bootstrap/js/dist/util';
 import AOS from 'aos'
+import Pace from 'pace-js/pace'
 window.jQuery = $;
 require("@fancyapps/fancybox");
 import 'slick-carousel'
@@ -16,14 +17,15 @@ library.add( faViber, faSkype, faWhatsapp, faVk, faYoutube, faFacebook, faInstag
 dom.watch();
 
 $(()=>{
-    console.log('loaded!!!');
+    Pace.start();
+    //console.log('loaded!!!');
 // ====================================== Animate on scroll ====================================
 
     AOS.init();
 
 // ====================================== Loader ===============================================
 
-    $('.loader-area').fadeOut().end().delay(400).fadeOut('slow');
+    //$('.loader-area').fadeOut().end().delay(400).fadeOut('slow');
 
 // ====================================== Navbar icon animation ================================
 
@@ -33,11 +35,11 @@ $(()=>{
 
 // ====================================== YMaps ================================================
 
-    $( document ).ready(()=>{ymaps.ready(init)});
+    ymaps.ready(init);
     function init(){
         let myMap = new ymaps.Map("ymapsContainer", {
             center: [55.76, 37.64],
-            zoom: 7,
+            zoom: 4,
             controls: []
         });
 
@@ -81,20 +83,73 @@ $(()=>{
                 result.to = to;
             }
 
+            result.via = [];
+
+            if(data[2].value !== "") {
+                result.via = data[2].value.split(";");
+            }
+            return result;
+        }
+
+        function setPoints(data){
+
+            let points = [];
+
+            let viaPointsIndexes = [];
+
+            if(data.res === 'success'){
+                points.push(data.from);
+
+                if(data.via.length){
+                    $.each(data.via, (el, idx)=>{
+                        if(idx !== ""){
+                            points.push(idx);
+                        } else {
+                            return;
+                        }
+                    })
+                }
+
+                points.push(data.to);
+
+                $.each(points, (idx, elt)=>{
+                    if (idx === 0 || idx === points.length-1){
+                        return;
+                    } else {
+                        viaPointsIndexes.push(idx);
+                    }
+                });
+
+            } else {
+                result.res = 'error';
+                $('.preloader').fadeOut();
+                $('#'+data.item+'Help').text('Ошибка');
+                $('#via').text('Добавтье все промежуточные пункты через точку с запятой');
+                return result;
+            }
+            //return points;
+            let result = {};
+            result.res = 'success';
+            result.points = points;
+            result.viaIndexes = viaPointsIndexes;
             return result;
         }
 
         $('#ymapsForm').submit((e)=>{
-            $('.preloader').css('display', 'block');
+            $('.preloader').fadeIn();
             e.preventDefault();
 
             let data = setData($(e.target).serializeArray());
+            let points = setPoints(data);
+            if (points.res === 'success'){
 
-            let points = [];
-            if(data.res === 'success'){
-                points.push(data.from, data.to);
-                route.model.setReferencePoints(points);
-                ymaps.route(points)
+                route.model.setParams({
+                    viaIndexes: points.viaIndexes
+                });
+
+                route.model.setReferencePoints(points.points);
+
+                ymaps.route(points.points)
                     .done((router)=>{
                         $('#distance').text(Math.round(router.getLength()/1000) + " км");
                         console.log(router.getHumanLength()); // длина маршрута
@@ -102,37 +157,34 @@ $(()=>{
                         $('.preloader').css('display', 'none');
                     }, (err)=>{
                         $('.preloader').css('display', 'none');
-                        console.log(err.message);
-                    })
+                        $('#ymapsForm')[0].reset();
+                        console.log(err);
+                    });
             } else {
-                $('.preloader').css('display', 'none');
-                $('#'+data.item+'Help').text('Ошибка');
+                console.log(points.res);
             }
         });
-
     }
 
 // ======================================== Calculator =========================================
-    var closeCalc = ()=>{
-        console.log('close it');
+    let closeCalc = ()=>{
+
         $('#calculator').removeClass('calc-show');
-        $('.screen').removeClass('screen-show');
-        jQuery('.rightBtn a').removeClass('active');
+        $('.screen').fadeOut();
+        $('#calculator').find('.active').removeClass('active');
     };
 
     $('.rightBtn').click((e)=>{
         if(!$('#calculator').hasClass('calc-show')) {
             $('#calculator').addClass('calc-show');
-            $('.screen').addClass('screen-show')
-        } else if ($(e.target).closest('a').hasClass('active')) {
-            closeCalc()
+            $('.screen').fadeIn();
         } else {
             return true;
         }
     });
-    $('.close-btn').click(closeCalc());
+    $('.close-btn').click(closeCalc);
 
-    $('.screen').click(closeCalc());
+    $('.screen').click(closeCalc);
 
 // ====================================== Slick sliders ========================================
 

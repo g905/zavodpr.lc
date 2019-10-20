@@ -153,15 +153,15 @@ module.exports = {
             filename: 'faq.html',
             template: './src/pug/views/faq.pug'
         }),
+        new HtmlWebpackPlugin({
+            filename: 'delivery.html',
+            template: './src/pug/views/delivery.pug'
+        }),
+        new HtmlWebpackPlugin({
+            filename: 'catalog.html',
+            template: './src/pug/views/catalog.pug'
+        }),
         /*new HtmlWebpackPlugin({
-            filename: 'album.html',
-            template: './src/pug/views/album.pug'
-        }),
-        new HtmlWebpackPlugin({
-            filename: 'afisha.html',
-            template: './src/pug/views/page_afisha.pug'
-        }),
-        new HtmlWebpackPlugin({
             filename: 'news.html',
             template: './src/pug/views/news.pug'
         }),
