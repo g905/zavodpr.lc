@@ -10,8 +10,8 @@ import 'slick-carousel'
 //import List from 'list.js'
 import { library, dom } from '@fortawesome/fontawesome-svg-core'
 import { faViber, faSkype, faWhatsapp, faVk, faYoutube, faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons'
-import { faMapMarkerAlt, faSearch, faChevronDown } from '@fortawesome/free-solid-svg-icons'
-library.add( faViber, faSkype, faWhatsapp, faVk, faYoutube, faFacebook, faInstagram, faMapMarkerAlt, faSearch, faChevronDown );
+import { faMapMarkerAlt, faSearch, faChevronDown, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
+library.add( faViber, faSkype, faWhatsapp, faVk, faYoutube, faFacebook, faInstagram, faMapMarkerAlt, faSearch, faChevronDown, faChevronLeft, faChevronRight );
 
 // ====================================== Replace fa-icons with SVGs ===========================
 dom.watch();

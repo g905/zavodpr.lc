@@ -1,0 +1,41 @@
+extends ../includes/layout
+include ../includes/mixins
+
+block content
+    - let crumbs = [{"href": "#", "title": "Главная"}, {"href": "#", "title": "Новости/Статьи"}]
+    +breadcrumbs(crumbs)
+
+    section#info
+        .container
+            .title
+                h3 Новости/Статьи
+            .info-items
+                - let i = 1
+                while i <= 11
+
+                    .item.info-item.ml-0.mr-0.mr-lg-4.my-3
+                        .card
+                            .card-title.title
+                                h4 Название новости в две строки
+                            .card-body
+                                p В своем стремлении повысить качество жизни, они забывают, что внедрение... <a href="#">Читать далее</a>
+                            .card-footer.p-0
+                                img(src="img/Главная/img-news-1.png")
+                    - i++
+            .info-pagination.m-5
+                .pagination-wrap
+                    .page-prev
+                        a(href="#")
+                            i.fas.fa-chevron-left
+                    .page-item
+                        a(href="#") 1
+                    .page-item.active 2
+                    .page-item
+                        a(href="#") 3
+                    .page-item
+                        a(href="#") 4
+                    .page-item
+                        a(href="#") 5
+                    .page-next
+                        a(href="#")
+                            i.fas.fa-chevron-right

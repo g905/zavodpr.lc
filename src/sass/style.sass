@@ -84,6 +84,7 @@ h6
   font-size: 12px
 p
   margin: 0 0 10px
+  font-size: 1rem
 b,
 strong
   font-weight: 700
@@ -749,3 +750,29 @@ footer
       .card-title
         h4
           color: $white
+
+// ======================================= Info ====================================
+#info
+  .info-items
+    display: flex
+    flex-flow: row wrap
+    justify-content: start
+    .info-item
+      display: flex
+      flex: 0 1 21%
+  .info-pagination
+    .pagination-wrap
+      display: flex
+      flex-flow: row nowrap
+      justify-content: flex-end
+      margin-right: 2rem
+      .page-item, .page-prev, .page-next
+        margin-right: 1rem
+        font-weight: bold
+        a
+          color: dimgray!important
+          &:hover
+            color: $blue
+        &.active
+          a
+            color: $blue!important
