@@ -142,9 +142,13 @@ input[type=submit]:focus,
 [contenteditable].form-control:focus,
 button:focus,
 li:focus,
+.form-control:focus,
 .btn:focus,.btn:active
-  outline: none !important
-  box-shadow: none
+  outline: none!important
+  box-shadow: none!important
+
+.form-control:not(select)
+  border-radius: 1rem
 
 // ====================================== Selection color ========================
 
@@ -326,7 +330,7 @@ li:focus,
   list-style-type: none
   padding: 3rem 0 1rem 0
 .slick-dots li button
-  background: $lgray
+  background: $lblue
   border-radius: 100%
   border: unset
   color: transparent
@@ -336,8 +340,41 @@ li:focus,
 .slick-dots li.slick-active
   outline: none
   button
-    background: $lblue
+    background: $blue
 
+// ==================================== Slick Arrows ===============================
+
+.slick-arrows
+  display: flex
+  width: 100px
+  justify-content: space-between
+  float: right
+.slick-arrow
+  background: transparent
+  border: 0
+  padding: 0
+  .svg-inline--fa
+    background: $blue
+    border: 2px solid $white
+    color: $white
+    width: 40px
+    height: 40px
+    border-radius: 20px
+    padding: .5rem
+    opacity: .8
+    transition: $trans
+    &:hover
+      opacity: 1
+  &.prev
+    .svg-inline--fa
+      padding-left: 5px
+  &.next
+    .svg-inline--fa
+      padding-right: 5px
+  &.slick-disabled
+    .svg-inline--fa
+      opacity: .5
+      cursor: default
 
 
 // ====================================== SECTIONS =================================
@@ -454,6 +491,38 @@ li:focus,
 // ==================================== Feedback ===================================
 .bg-white
   background: $white
+.bg-success
+  background-color: $green!important
+#feedback
+  .form-col
+    perspective: 1500px
+    perspective-origin: center
+    align-items: center
+    display: flex
+    position: relative
+  .form-wrap
+    position: absolute
+    transition: all .5s ease-in-out
+    //transform-origin: bottom
+    opacity: 1
+    z-index: 999
+    &.flipped
+      transform: rotateX(-180deg)
+      opacity: 0
+  .backside
+    transition: all .5s ease-in-out
+    transform: rotateX(-360deg)
+    height: 100%
+    display: flex
+    align-items: center
+    width: 100%
+    justify-content: center
+    opacity: 1
+    position: absolute
+    z-index: 99
+    &.flipped
+      transform: rotateX(-180deg)
+      opacity: 0
 
 // ====================================== Team =====================================
 #team
@@ -468,7 +537,7 @@ li:focus,
       color: $white
       text-align: left
       transition: $trans
-      bottom: -180px
+      bottom: -170px
       background: linear-gradient(transparent, $black)
       h4
         color: $white
@@ -520,11 +589,45 @@ li:focus,
   .end-blue
     &::after
       border-left: solid 30px $blue
+#stagesMobile
+  background: $blue
+  h3
+    color: $white
+  .stage
+    &:not(.empty)
+      width: 100%
+  .end-white, .end-blue
+    position: relative
+  .end-white
+    background: $white
+  .end-blue
+    background: $blue
+    color: $white
+  .end-white, .end-blue
+    &::after
+      z-index: 99
+      content: ''
+      position: absolute
+      top: 99%
+      left: 0
+      right: 0
+      padding-bottom: 10%
+      clip-path: polygon(0% 0%, 100% 0%, 50% 50%)
+
+  .end-white
+    &::after
+      background: $white
+  .end-blue
+    &::after
+      background: $blue
+
 
 // ====================================== Info =====================================
 #info
   .info-item
     max-width: 95%
+    display: flex!important
+    margin: auto
     .card
       background: $white
       .card-title
@@ -635,8 +738,8 @@ footer
           color: $blue
           opacity: 1
     svg
-      color: #bab9b9
-      opacity: .9
+      color: $black
+      opacity: .5
       transition: $trans
     &:hover
       svg

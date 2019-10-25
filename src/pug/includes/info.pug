@@ -2,14 +2,18 @@ section#info
     .back
     .container.mt-5
         .row
-            .col-6
+            .col-12.col-lg-6
                 .news
                     .title-row.d-flex.align-items-center.justify-content-between.mb-3
                         .title
                             h3 Новости
                         .links
                             a(href="#") Все новости
-                        .slick-arrows#arrowsNews
+                        .slick-arrows#arrowsNews.d-none.d-lg-flex
+                            button.slick-arrow.prev
+                                i.fas.fa-chevron-left
+                            button.slick-arrow.next
+                                i.fas.fa-chevron-right
                     .slick-news
                         .item.info-item
                             .card
@@ -35,14 +39,18 @@ section#info
                                     p В своем стремлении повысить качество жизни, они забывают, что внедрение... <a href="#">Читать далее</a>
                                 .card-footer.p-0
                                     img(src="img/Главная/img-news-1.png")
-            .col-6
+            .col-12.col-lg-6
                 .articles
                     .title-row.d-flex.align-items-center.justify-content-between.mb-3
                         .title
                             h3 Статьти
                         .links
                             a(href="#") Все статьи
-                        .slick-arrows#arrowsArticles
+                        .slick-arrows#arrowsArticles.d-none.d-lg-flex
+                            button.slick-arrow.prev
+                                i.fas.fa-chevron-left
+                            button.slick-arrow.next
+                                i.fas.fa-chevron-right
                     .slick-articles
                         .item.info-item
                             .card

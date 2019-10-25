@@ -28,10 +28,34 @@ mixin feedback(page)
     section.m-0(class=bg)#feedback
         .container
             .row
-                .col-12.col-lg-6.p-0
-                    .form-wrap
-                        .title.pt-5.text-center.text-lg-left
+                .col-12.col-lg-6.pl-0.pr-5.form-col
+                    .form-wrap.pr-5.w-100
+                        .title.mb-5.text-center.text-lg-left
                             h3 Форма обратной связи
+                        form(action="/")
+                            .row
+                                .col
+                                    .form-group
+                                        input(type="text" class="form-control" placeholder="Имя")
+                                        //.small.text-danger.text-right Поле обязательно для заполнения
+                                    .form-group
+                                        input(type="email" class="form-control" placeholder="Email")
+                                        //.small.text-danger.text-right Поле обязательно для заполнения
+                                    .form-group
+                                        input(type="phone" class="form-control" placeholder="Номер телефона")
+                                        //.small.text-danger.text-right Поле обязательно для заполнения
+                                    .form-group
+                                        .g-recaptcha(data-sitekey="6Ldic78UAAAAAL_bVb4uT9Nmwv9PD8vsC55L1sRS")
+                                .col
+                                    .form-group
+                                        textarea(class="form-control" rows="4" placeholder="Сообщение")
+                                        //.small.text-danger.text-right Поле обязательно для заполнения
+                                    .form-group
+                                        p.small.text-justify Нажимая на кнопку, вы даете свое согласие на обработку персональных данных. <a href="">Узнать больше</a>
+                                    .form-group
+                                        button.btn.zavodpr-btn(type="submit") Отправить
+                    .backside.flipped.pr-5.bg-success
+                        h3.text-white Отправлено
                 .col-12.col-lg-6.d-none.d-lg-block.p-0.text-left
                     img.img-fluid(src="img/Главная/img-conversation.png")
 mixin team()
@@ -90,14 +114,14 @@ mixin team()
     section#teamMembers
         each member, idx in team
             - let num = idx+1
-            .member-card.d-flex.my-3.pb-3
-                .img
-                    img(src="img/Команда/img-person-"+num+".png")
-                .member-desc.d-flex.flex-column.justify-content-around.pl-3
+            .member-card.d-flex.flex-column.flex-lg-row.my-3.pb-3
+                .img.w-100.w-lg-50
+                    img.w-100(src="img/Команда/img-person-"+num+".png")
+                .member-desc.d-flex.flex-column.justify-content-around.px-3.text-justify.mt-4
                     .name=member.name
-                    .position=member.position
-                    .contacts.d-flex.align-items-center.justify-content-between.w-75
-                        button.btn.zavodpr-btn Написать сообщение
-                        a(href="mailto:"+member.email)=member.email
-                        a(href="tel:"+member.phone)=member.phone
-                    .description=member.description
+                    .position.mb-4=member.position
+                    .contacts.d-flex.flex-column.flex-lg-row.align-items-center.justify-content-between.w-100.w-lg-75
+                        button.btn.zavodpr-btn.mb-4 Написать сообщение
+                        a.mb-4(href="mailto:"+member.email)=member.email
+                        a.mb-0.mb-lg-4(href="tel:"+member.phone)=member.phone
+                    .description.mt-4=member.description

@@ -5,6 +5,7 @@ import 'bootstrap/js/dist/util';
 import AOS from 'aos'
 import Pace from 'pace-js/pace'
 window.jQuery = $;
+window.$ = $;
 require("@fancyapps/fancybox");
 import 'slick-carousel'
 //import List from 'list.js'
@@ -186,6 +187,13 @@ $(()=>{
 
     $('.screen').click(closeCalc);
 
+// ====================================== Feedback-form ========================================
+
+    $('.form-wrap form').submit((e) => {
+        $('.form-wrap, .backside').toggleClass('flipped');
+        e.preventDefault();
+    });
+
 // ====================================== Slick sliders ========================================
 
     let slickCarousel = {
@@ -196,7 +204,9 @@ $(()=>{
         autoplay: true,
         slidesToShow: 1,
         cssEase: "ease-out",
-        appendArrows: $('#slickArrowsCarousel')
+        appendArrows: $('#slickArrowsCarousel'),
+        prevArrow: $('#slickArrowsCarousel .prev'),
+        nextArrow: $('#slickArrowsCarousel .next')
     };
 
     let slickSolutions = {
@@ -207,6 +217,8 @@ $(()=>{
         slidesToShow: 4,
         slidesToScroll: 1,
         appendArrows: $('#slickArrowsSolutions'),
+        prevArrow: $('#slickArrowsSolutions .prev'),
+        nextArrow: $('#slickArrowsSolutions .next'),
         responsive: [{
             breakpoint: '768',
             settings: {
@@ -224,6 +236,8 @@ $(()=>{
         autoplay: false,
         slidesToShow: 3,
         slidesToScroll: 1,
+        prevArrow: '<button class="slick-arrow prev"><i class="fas fa-chevron-left"></i></button>',
+        nextArrow: '<button class="slick-arrow next"><i class="fas fa-chevron-right"></i></button>',
         responsive: [{
             breakpoint: '768',
             settings: {
@@ -242,6 +256,8 @@ $(()=>{
         slidesToShow: 2,
         slidesToScroll: 1,
         appendArrows: $('#arrowsNews'),
+        prevArrow: $('#arrowsNews .prev'),
+        nextArrow: $('#arrowsNews .next'),
         responsive: [{
             breakpoint: '768',
             settings: {
@@ -260,6 +276,8 @@ $(()=>{
         slidesToShow: 2,
         slidesToScroll: 1,
         appendArrows: $('#arrowsArticles'),
+        prevArrow: $('#arrowsArticles .prev'),
+        nextArrow: $('#arrowsArticles .next'),
         responsive: [{
             breakpoint: '768',
             settings: {
@@ -278,6 +296,8 @@ $(()=>{
         slidesToShow: 5,
         slidesToScroll: 1,
         appendArrows: $('#arrowsPartners'),
+        prevArrow: $('#arrowsPartners .prev'),
+        nextArrow: $('#arrowsPartners .next'),
         responsive: [{
             breakpoint: '768',
             settings: {
@@ -296,6 +316,8 @@ $(()=>{
         slidesToShow: 1,
         slidesToScroll: 1,
         appendArrows: $('#arrowsHistory'),
+        prevArrow: $('#arrowsHistory .prev'),
+        nextArrow: $('#arrowsHistory .next'),
         responsive: [{
             breakpoint: '768',
             settings: {

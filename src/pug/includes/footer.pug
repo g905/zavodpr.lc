@@ -1,10 +1,16 @@
 footer.p-5
     .container
-        .row.d-flex.align-items-top
+        .row.d-flex.align-items-top.text-center.text-lg-left
             .col-12.col-lg-4.order-4.order-lg-1.d-flex.flex-column.justify-content-between
                 .social-icons
-                    ul.d-flex.flex-nowrap.flex-lg-wrap.text-left.justify-content-start.w-80.my-0
+                    ul.d-flex.flex-nowrap.flex-lg-wrap.text-left.justify-content-center.justify-content-lg-start.w-80.my-0.mb-5
                         +socialIcons
+                .contacts.d-flex.d-lg-none.justify-content-around
+                    .tel
+                        a(href="tel:+79128577186") +79128577186
+                    .email
+                        a(href="mailto:login@email.com") login@email.com
+
                 .confidential.mt-5
                     a(href="#") Политика конфиденциальности
                 .copyright

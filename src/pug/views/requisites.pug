@@ -47,8 +47,8 @@ block content
                 p Ниже приведены реквизиты компании, в случае необходимости получения дополнительных документов: свидетельства о государственной регистрации, идентификационного номера налогоплательщика вы можете обратиться в нашу бухгалтерию.
             .requisites
                 each req in requisites
-                    .card.requisite-card
-                        .left=req.title
+                    .card.requisite-card.d-flex.flex-column.flex-lg-row.text-justify
+                        .left.font-weight-bold=req.title
                         .right=req.value
             .card.requisite-card.my-5#file
                 .left

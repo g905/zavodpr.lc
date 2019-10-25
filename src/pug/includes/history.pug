@@ -1,17 +1,28 @@
 include ./mixins
-section#history.mt-5
+section#history.mt-0.mt-lg-5
     .container
         .row.history-title.align-items-center.mb-5
-            .col-4
-                h3 История компании
-            .col.d-flex.justify-content-between
+            .col-12.col-lg-4
+                h3.mb-5.mb-lg-0.m-0 История компании
+            .col-12.col-lg-4.d-flex.justify-content-between.align-items-center
                 .filter-input
-                    p input filter
+                    form
+                        .form-group.m-0
+                            select.form-control(name="year")
+                                option(value = "2015") 2015
+                                option(value = "2016") 2016
+                                option(value = "2017") 2017
+                                option(value = "2018") 2018
+                                option(value = "2019") 2019
                 .social-icons
                     ul.d-flex
                         +socialIcons
-            .col-4.text-right
-                .slick-arrows#arrowsHistory
+            .col-12.col-lg-4.text-right
+                .slick-arrows.d-none.d-lg-flex#arrowsHistory
+                    button.slick-arrow.prev
+                        i.fas.fa-chevron-left
+                    button.slick-arrow.next
+                        i.fas.fa-chevron-right
         .slick-history.text-justify
             - let n = 1
             while n < 5
