@@ -1,0 +1,57 @@
+extends ../includes/layout
+include ../includes/mixins
+
+block content
+    - let crumbs = [{"href": "#", "title": "Главная"}, {"href": "#", "title": "Каталог продукции"}, {"href": "#", "title": "Подраздел каталога"}, {"href": "#", "title": "Раздел карточек товара"}, {"href": "#", "title": "Название товара"}]
+    +breadcrumbs(crumbs)
+
+    section#item.mb-5
+        .container
+            .title.mb-4
+                h3 Название товара
+            .row
+                .col-12.col-lg-4
+                    .item-img
+                        .zoomBtn
+
+                            a(data-fancybox="gallery" href="img/Детальная%20карточка%20товара/img-barrel-full.png")
+                                img(src="img/Детальная%20карточка%20товара/icon-zoom.png")
+                        img(src="img/Детальная%20карточка%20товара/img-barrel-full.png")
+                .col-12.col-lg-8
+                    .item-desc
+                        p А также базовые сценарии поведения пользователей, инициированные исключительно синтетически, ассоциативно распределены по отраслям. Каждый из нас понимает очевидную вещь: существующая теория однозначно фиксирует необходимость своевременного выполнения сверхзадачи. Задача организации, в особенности же сложившаяся структура организации создает предпосылки для вывода текущих активов!
+                        p Вот вам яркий пример современных тенденций - высокотехнологичная концепция общественного уклада однозначно определяет каждого участника как способного принимать собственные решения касаемо распределения внутренних резервов и ресурсов. А еще ключевые особенности структуры проекта формируют глобальную экономическую сеть и при этом - призваны к ответу. В своем стремлении повысить качество жизни, они забывают, что граница обучения кадров однозначно фиксирует необходимость новых предложений! Имеется спорная точка зрения, гласящая примерно следующее: независимые государства указаны как претенденты на роль ключевых факторов.
+            .row.my-5
+                .col-12
+                    .characteristics
+                        .title.mb-5
+                            h3 Характеристики
+                        table.table.table-hover.table-striped
+                            -let n = 0
+                            while n < 10
+                                tr
+                                    td Название параметра
+                                    td Описание параметра
+                                - n++
+
+            .related.title-row.d-flex.align-items-center.justify-content-between.my-5
+                .title
+                    h3 Сопутствующие товары
+                .slick-arrows.d-none.d-lg-flex#arrowsRelated
+                    button.slick-arrow.prev
+                        i.fas.fa-chevron-left
+                    button.slick-arrow.next
+                        i.fas.fa-chevron-right
+            .slick-related.category
+                - let i = 0
+                while i < 10
+                    .catalog-item.m-auto.mx-lg-0
+                        .cat-card.text-center.mb-2.p-3.mr-2
+                            img(src="img/Подраздел%20каталога/img-barrel-list.png")
+                            .card-body.p-0.m-auto
+                                .item-title
+                                    h5="Название в две строчки " + n
+                            .card-bottom.d-flex.justify-content-between
+                                button.btn.zavodpr-btn.blue-btn Узнать цену
+                                button.btn.zavodpr-btn Заказать
+                    - i ++

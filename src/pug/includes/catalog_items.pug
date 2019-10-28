@@ -1,0 +1,9 @@
+.items.d-flex.flex-wrap.justify-content-around
+    - let n = 0
+    while n < 20
+        .catalog-item
+            .cat-card.text-center
+                img(src="img/Подраздел%20каталога/img-barrel-list.png")
+                .card-body.m-auto
+                    h5="test "+n
+        - n++

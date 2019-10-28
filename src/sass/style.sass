@@ -1,7 +1,7 @@
 @import "~bootstrap/scss/bootstrap.scss"
 @import "~aos/dist/aos.css"
 @import "~slick-carousel/slick/slick"
-//@import "~@fancyapps/fancybox/dist/jquery.fancybox.min.css"
+@import "~@fancyapps/fancybox/dist/jquery.fancybox.min.css"
 @import "~pace-js/themes/blue/pace-theme-flash.css"
 
 $font-stack: -apple-system, BlinkMacSystemFont,Ubuntu,'Open Sans','Helvetica Neue',sans-serif
@@ -16,6 +16,7 @@ $white: #fff
 $brown: #C89554
 $red: #CE0000
 $lgray: #eee
+$gray: #828282
 $blue: #2B5C87
 $lblue: #3f87c6
 $green: #85C752
@@ -177,6 +178,58 @@ li:focus,
 .dropdown-menu
   top: 95%
 
+// ====================================== Switch ===========================================
+/* The switch - the box around the slider */
+.switch
+  position: relative
+  display: inline-block
+  width: 60px
+  height: 34px
+  transform: scale(.8)
+/* Hide default HTML checkbox */
+.switch input
+  display: none
+/* The slider */
+.sw-slider
+  position: absolute
+  cursor: pointer
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  background-color: #ccc
+  transition: .4s
+.sw-slider:before
+  position: absolute
+  content: ""
+  height: 26px
+  width: 26px
+  left: 4px
+  bottom: 4px
+  background-color: white
+  transition: .4s
+input.default:checked + .sw-slider
+  background-color: #444
+input.primary:checked + .sw-slider
+  background-color: $blue
+input.success:checked + .sw-slider
+  background-color: #8bc34a
+input.info:checked + .sw-slider
+  background-color: #3de0f5
+input.warning:checked + .sw-slider
+  background-color: #FFC107
+input.danger:checked + .sw-slider
+  background-color: #f44336
+input:focus + .slider
+  box-shadow: 0 0 1px #2196F3
+input:checked + .sw-slider:before
+  transform: translateX(26px)
+/* Rounded sliders */
+.sw-slider.round
+  border-radius: 34px
+.sw-slider.round:before
+  border-radius: 50%
+
 // ====================================== Loader ==============================
 
 //.loader-area
@@ -307,6 +360,10 @@ li:focus,
   min-width: 200px
   line-height: 100%
   padding: 10px
+  &.blue-btn
+    background: transparent
+    border: 2px solid $blue
+    color: $blue
   &:hover
     opacity: 1
 .transparent
@@ -863,19 +920,161 @@ footer
     .info-item
       display: flex
       flex: 0 1 21%
-  .info-pagination
-    .pagination-wrap
-      display: flex
-      flex-flow: row nowrap
-      justify-content: flex-end
-      margin-right: 2rem
-      .page-item, .page-prev, .page-next
-        margin-right: 1rem
+.pagination-wrap
+  display: flex
+  flex-flow: row nowrap
+  justify-content: flex-end
+  margin-right: 2rem
+  .page-item, .page-prev, .page-next
+    margin-right: 1rem
+    font-weight: bold
+    a
+      color: dimgray!important
+      &:hover
+        color: $blue
+    &.active
+      a
+        color: $blue!important
+
+// ==================================== Subcategory =================================
+#subcategory, #items, #item
+  .category
+    flex-basis: 25%
+    .cat-card
+      height: 150px
+      overflow: hidden
+      transition: $trans
+      border-radius: .2rem
+      cursor: pointer
+      border: 1px solid #ddd
+      &:hover
+        box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.15)
+      .cat-desc
+        width: 100%
+        height: 100%
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+  .cat-desc-bottom
+    p
+      margin: 0
+      color: $gray
+  .switch-row
+    transform: scale(0.8)
+    transform-origin: left
+  .catalog-row
+    .left-bar
+      width: 33%
+      transition: $trans
+      position: relative
+      z-index: 99
+      opacity: 1
+      &.collapsed
+        width: 0
+        opacity: 0
+      .filters
+        .cat-block
+          .img-over
+            position: absolute
+            width: 50%
+            padding: 10px
+            font-size: .9rem
+            h4, p
+              color: $blue
+            h4
+              font-weight: bold
+          background: $white
+          ul
+            list-style-type: none
+            li
+              padding: 10px 0
+              border-bottom: 1px solid $lgray
+              opacity: .7
+              transition: $trans
+              color: $blue
+              &:hover
+                opacity: 1
+              a
+                display: block
+                text-transform: uppercase
+                color: $blue
+                svg
+                  margin: 15px
+    .catalog-items-wrap
+      z-index: 999
+      .catalog-items
+        .catalog-item
+          display: flex
+          flex-direction: column
+          flex-basis: 320px
+          margin: auto
+          .cat-card
+            background: $white
+            transition: $trans
+            border-radius: .2rem
+            cursor: pointer
+            border: 1px solid #ddd
+            &:hover
+              box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.15)
+            img
+              width: 80%
+            .card-body
+              .item-title
+                text-align: center
+                padding: 0 40px
+            .card-bottom
+              button
+                min-width: 45%
+@media screen and (max-width: 768px)
+  #subcategory
+    .category
+      flex-basis: 100%
+    .catalog-row
+      .left-bar
+        width: 100%
+
+// ======================================== Item ====================================
+#item
+  .item-img
+    position: relative
+    width: 100%
+    background: $white
+    text-align: center
+    .zoomBtn
+      position: absolute
+      top: 10px
+      right: 10px
+  .item-desc
+    text-align: justify
+  .table-striped tbody tr:nth-of-type(odd)
+    background-color: $white
+  .table-hover tbody tr:hover
+    color: #212529
+    background-color: rgba(0, 0, 0, 0.075)
+  .cat-card
+    height: unset!important
+    background: $white
+    img
+      width: 100%
+    .card-bottom
+      button
+        min-width: 45%
+
+// ======================================= Contacts =================================
+#contacts
+  .addr-card
+    background: $white
+    border: 1px solid #ddd
+    border-radius: .25rem
+    width: 400px
+    h4
+      font-size: 1.6rem
+    .addr-desc
+      h5
+        margin: 0
         font-weight: bold
-        a
-          color: dimgray!important
-          &:hover
-            color: $blue
-        &.active
-          a
-            color: $blue!important
+      p
+        margin: 0
+  #ymapsContacts
+    height: 500px
+    width: 100%

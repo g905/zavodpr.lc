@@ -95,6 +95,12 @@ module.exports = {
                         pretty: true
                     }
                 }]
+            },
+            {
+                test: /\.(woff|woff2|ttf)$/,
+                use: {
+                    loader: 'url-loader'
+                }
             }
         ]
     },
@@ -169,9 +175,25 @@ module.exports = {
             filename: 'info-detail.html',
             template: './src/pug/views/info_detail.pug'
         }),
-        /*new HtmlWebpackPlugin({
+        new HtmlWebpackPlugin({
             filename: 'contacts.html',
             template: './src/pug/views/contacts.pug'
-        }),*/
+        }),
+        new HtmlWebpackPlugin({
+            filename: 'subcategory.html',
+            template: './src/pug/views/subcategory.pug'
+        }),
+        new HtmlWebpackPlugin({
+            filename: 'items.html',
+            template: './src/pug/views/items.pug'
+        }),
+        new HtmlWebpackPlugin({
+            filename: 'item.html',
+            template: './src/pug/views/item.pug'
+        }),
+        new HtmlWebpackPlugin({
+            filename: 'contacts.html',
+            template: './src/pug/views/contacts.pug'
+        }),
     ]
 };

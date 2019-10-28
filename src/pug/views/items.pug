@@ -1,0 +1,92 @@
+extends ../includes/layout
+include ../includes/mixins
+
+block content
+    - let crumbs = [{"href": "#", "title": "Главная"}, {"href": "#", "title": "Каталог продукции"}, {"href": "#", "title": "Подраздел каталога"}, {"href": "#", "title": "Раздел карточек товара"}]
+    +breadcrumbs(crumbs)
+
+    section#items.mb-5
+        .container
+            .title.mb-4
+                h3 Раздел карточек товара
+            .switch-row.my-3
+                .custom-control.custom-switch.p-0
+                    label.switch
+                        input.primary(type="checkbox" checked)
+                        span.sw-slider.round
+            .catalog-row.d-flex.flex-column.flex-lg-row
+                .left-bar
+                    //include ../includes/filters
+                    .filters.mr-3
+                        .cat-block.mb-2.p-0
+                            h3 Категории
+                        .cat-block.mb-2.p-0
+                            .img-over
+                                h4 Мы всегда на связи!
+                                p.pt-1 Консультируем в офисе, при личной встрече, по Skype
+                            img.w-100(src="img/Подраздел%20каталога/img-stay-connected.png")
+                            ul.d-flex.flex-column
+                                li.rightBtn
+                                    a(href="#one" role="tab" data-toggle="tab" aria-selected="true")
+                                        <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M17.3955 1L10.3955 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M10.3955 2V8H16.3955" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M7.89443 12.5004L5.89443 10.0004C8.89479 6.99998 5.89443 1.99989 1.89443 4.50042C-2.10411 8.5 8.39551 20.5 11.8944 17.5004C15.3944 14.0004 11.8944 10.0004 7.89443 12.5004Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                        | Закзать звонок
+                                li.rightBtn
+                                    a(href="#two" role="tab" data-toggle="tab")
+                                        <svg width="19" height="15" viewBox="0 0 19 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M1 1H18M1 1V14M1 1L9.5 8.5L18 1M18 1V14M18 14H1M18 14L14 9.5M1 14L5 9.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                        | Написать сообщение
+
+                                li.rightBtn
+                                    a(href="#three" role="tab" data-toggle="tab")
+                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="7.5" cy="9" r="1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <circle cx="12.5" cy="9" r="1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M8.5 5L7.5 8M13.5 5L12.5 8M5.5 14.5V18.5L10 14.5H18.5V1H1V14.5H5.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                        | Оставить отзыв
+                                li.rightBtn
+                                    a(href="#four" role="tab" data-toggle="tab")
+                                        <svg width="15" height="20" viewBox="0 0 15 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M7.94592 18.1326C7.7459 18.3437 7.5656 18.5293 7.41078 18.686C7.24451 18.5325 7.04955 18.3432 6.83178 18.1208C6.13517 17.4092 5.24293 16.3965 4.36496 15.2158C2.56769 12.7988 1 9.90177 1 7.5C1 3.91015 3.91015 1 7.5 1C11.0899 1 14 3.91015 14 7.5C14 8.66117 13.5996 9.9721 12.9308 11.3321C12.2667 12.6824 11.3707 14.0154 10.4574 15.2028C9.54625 16.3873 8.63265 17.4077 7.94592 18.1326Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <circle cx="7.5" cy="7.5" r="3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                        | Ближайший офис
+                                li.rightBtn
+                                    a#calcBtn(href="#five" role="tab" data-toggle="tab")
+                                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" class="svg">
+                                        <rect x="1" y="1" width="20" height="20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M11 1V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M1 11H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M6 4V8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M4 6H8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M6.82812 15L3.9997 17.8284" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M4 15L6.82843 17.8284" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M14 6H18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M14 18H18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M14 15H18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                        | Калькулятор
+                .catalog-items-wrap.w-100
+                    //include ../includes/catalog_items
+                    .catalog-items.d-flex.flex-wrap.justify-content-start
+                        - let n = 0
+                        while n < 10
+                            .catalog-item.m-auto.mx-lg-0
+                                .cat-card.text-center.mb-2.p-3.mr-2
+                                    img(src="img/Подраздел%20каталога/img-barrel-list.png")
+                                    .card-body.p-0.m-auto
+                                        .item-title
+                                            h5="Название в две строчки " + n
+                                    .card-bottom.d-flex.justify-content-between
+                                        button.btn.zavodpr-btn.blue-btn Узнать цену
+                                        button.btn.zavodpr-btn Заказать
+                            - n++
+            .cat-pagination.my-5
+                include ../includes/pagination
+            .cat-description.text-justify
+                p Безусловно, внедрение современных методик играет определяющее значение для системы массового участия. Как уже неоднократно упомянуто, диаграммы связей и по сей день остаются уделом либералов, которые жаждут быть своевременно верифицированы. Повседневная практика показывает, что базовый вектор развития требует анализа системы обучения кадров, соответствующей насущным потребностям. Таким образом, реализация намеченных плановых заданий обеспечивает широкому кругу (специалистов) участие в формировании системы обучения кадров, соответствующей насущным потребностям. Каждый из нас понимает очевидную вещь: убежденность некоторых оппонентов предоставляет широкие возможности для глубокомысленных рассуждений. Банальные, но неопровержимые выводы, а также ключевые особенности структуры проекта ограничены исключительно образом мышления! Равным образом, граница обучения кадров не дает нам иного выбора, кроме определения приоритизации разума над эмоциями. Как уже неоднократно упомянуто, элементы политического процесса представляют собой не что иное, как квинтэссенцию победы маркетинга над разумом и должны быть ограничены исключительно образом мышления. А еще независимые государства разоблачены. Приятно, граждане, наблюдать, как базовые сценарии поведения пользователей, которые представляют собой яркий пример континентально-европейского типа политической культуры, будут подвергнуты целой серии независимых исследований.

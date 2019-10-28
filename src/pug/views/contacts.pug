@@ -1,0 +1,65 @@
+extends ../includes/layout
+include ../includes/mixins
+
+block content
+    - let crumbs = [{"href": "#", "title": "Главная"}, {"href": "#", "title": "Контакты"}]
+    +breadcrumbs(crumbs)
+
+    section#contacts.mb-5
+        .container
+            .title.mb-5
+                h3 Контакты
+            .adresses.d-flex.flex-wrap.justify-content-between
+                - let y = 0
+                while y < 1
+                    .addr-card.p-3
+                        .title.mb-5
+                            h4 г. Москва - центральный офис
+                        .addr-desc.d-flex.flex-column
+                            .addr.mb-3
+                                h5 Адрес:
+                                p Волоколамское Шоссе, д. 116, офис 438
+                            .on-map.mb-3
+                                a.addr-link(href="#" data-address="Волоколамское Шоссе, д. 116") Посмотреть на карте
+                            .phone.mb-3
+                                h5 Номер телефона:
+                                a(href="tel:+79128577186") +79128577186
+                            .email
+                                h5 E-mail:
+                                a(href="mailto:login@mail.com") login@mail.com
+                    - y ++
+                .addr-card.p-3
+                    .title.mb-5
+                        h4 г. Дмитров - производственная площадка
+                    .addr-desc.d-flex.flex-column
+                        .addr.mb-3
+                            h5 Адрес:
+                            p 141800, Московская Область, город Дмитров, ул.Промышленная, д. 27
+                        .on-map.mb-3
+                            a.addr-link(href="#" data-address="141800, Московская Область, город Дмитров, ул.Промышленная, д. 27") Посмотреть на карте
+                        //.phone.mb-3
+                            h5 Номер телефона:
+                            a(href="tel:+79128577186") +79128577186
+                        .email
+                            h5 E-mail:
+                            a(href="mailto:login@mail.com") login@mail.com
+                .addr-card.p-3
+                    .title.mb-5
+                        h4 г. Вельск - офис
+                    .addr-desc.d-flex.flex-column
+                        .addr.mb-3
+                            h5 Адрес:
+                            p ул. 50 лет октября, дом 79, корпус Д
+                        .on-map.mb-3
+                            a.addr-link(href="#" data-address="Московская область, Вельск, ул. 50 лет октября, дом 79, корпус Д") Посмотреть на карте
+                        .phone.mb-3
+                            h5 Номер телефона:
+                            a(href="tel:8(495)776-87-88") 8(495)776-87-88
+                        .email
+                            h5 E-mail:
+                            a(href="mailto:info@zavodpr.ru") info@zavodpr.ru
+            .ymapsContacts.my-5#ymapsContacts
+
+
+
+            include ../includes/team

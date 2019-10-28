@@ -40,9 +40,42 @@ $(()=>{
     function init(){
         let myMap = new ymaps.Map("ymapsContainer", {
             center: [55.76, 37.64],
-            zoom: 4,
+            zoom: 6,
             controls: []
         });
+
+        if($('#ymapsContacts').length){
+            let contactsMap = new ymaps.Map("ymapsContacts", {
+                center: [55.76, 37.64],
+                zoom: 11,
+                controls: []
+            });
+            contactsMap.behaviors.disable('scrollZoom');
+
+            if($('.addr-link').length){
+                $('.addr-link').click((e) => {
+                    e.preventDefault();
+                    var addr = $(e.target).data('address');
+                    console.log(addr);
+                    ymaps.geocode(addr, {
+                        results: 1
+                    }).then(function(res){
+                        let firstObj = res.geoObjects.get(0),
+                            coordinates = firstObj.geometry.getCoordinates(),
+                            bounds = firstObj.properties.get('boundedBy');
+                        firstObj.options.set('preset', 'islands#darkBlueDotIconWithCaption');
+                        firstObj.properties.set('iconCaption', firstObj.getAddressLine());
+                        contactsMap.geoObjects.add(firstObj);
+                        // Масштабируем карту на область видимости геообъекта.
+                        contactsMap.setBounds(bounds, {
+                            // Проверяем наличие тайлов на данном масштабе.
+                            checkZoomRange: true
+                        });
+                    });
+                });
+
+            }
+        }
 
         let route = new ymaps.multiRouter.MultiRoute({
             referencePoints: [
@@ -167,12 +200,15 @@ $(()=>{
         });
     }
 
+    // =============================== Contacts Page Maps ======================================
+
+
 // ======================================== Calculator =========================================
     let closeCalc = ()=>{
 
         $('#calculator').removeClass('calc-show');
         $('.screen').fadeOut();
-        $('#calculator').find('.active').removeClass('active');
+        $('#calculator, .filters').find('.active').removeClass('active');
     };
 
     $('.rightBtn').click((e)=>{
@@ -192,6 +228,17 @@ $(()=>{
     $('.form-wrap form').submit((e) => {
         $('.form-wrap, .backside').toggleClass('flipped');
         e.preventDefault();
+    });
+
+// ========================================= Switcher ==========================================
+
+    $('.custom-switch input').change((e) => {
+        console.log(e.target.checked)
+        if(e.target.checked) {
+            $('.left-bar').removeClass('collapsed');
+        } else {
+            $('.left-bar').addClass('collapsed');
+        }
     });
 
 // ====================================== Slick sliders ========================================
@@ -328,6 +375,26 @@ $(()=>{
         }]
     };
 
+    let slickRelated = {
+        infinite: false,
+        arrows: true,
+        dots: false,
+        autoplay: false,
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        appendArrows: $('#arrowsRelated'),
+        prevArrow: $('#arrowsRelated .prev'),
+        nextArrow: $('#arrowsRelated .next'),
+        responsive: [{
+            breakpoint: '768',
+            settings: {
+                arrows: false,
+                dots: true,
+                slidesToShow: 1
+            }
+        }]
+    };
+
     $('.carousel').slick(slickCarousel);
     $('.slick-solutions').slick(slickSolutions);
     $('.slick-team').slick(slickTeam);
@@ -335,5 +402,6 @@ $(()=>{
     $('.slick-articles').slick(slickArticles);
     $('.slick-partners').slick(slickPartners);
     $('.slick-history').slick(slickHistory);
+    $('.slick-related').slick(slickRelated)
 
 });

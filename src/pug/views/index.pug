@@ -7,7 +7,7 @@ html(lang="ru")
     body
         include ../includes/loader
         .container.mt-5
-            ul.index-ul
+            ul.index-ul.d-flex.flex-column.flex-wrap
                 +page("main.html", "Главная")
                 +page("about.html", "О компании")
                 //-+page("ymap.html", "Калькулятор")
@@ -17,17 +17,9 @@ html(lang="ru")
                 +page("faq.html", "Вопросы и ответы")
                 +page("delivery.html", "Доставка")
                 +page("catalog.html", "Каталог")
+                +page("subcategory.html", "Подраздел каталога")
+                +page("items.html", "Карточки товаров")
+                +page("item.html", "Товар")
                 +page("info.html", "Новости/Статьи")
                 +page("info-detail.html", "Новости/Статьи детально")
-            //-ul
-                +page("main.html", "Главная")
-                +page("about.html", "О клубе")
-                +page("privileges.html", "Привилегии")
-                +page("menu.html", "Меню клуба")
-                +page("vacancies.html", "Вакансии")
-                +page("gallery.html", "Галерея")
-                +page("album.html", "Альбом")
-                +page("afisha.html", "Афиша")
-                +page("news.html", "Новости")
-                +page("news-detail.html", "Новость")
                 +page("contacts.html", "Контакты")
