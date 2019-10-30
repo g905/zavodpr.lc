@@ -351,10 +351,10 @@ $(()=>{
     });
 
 // ======================================== Accordion ==========================================
-    //$('.accordion-card').click(function(e){
-        //$(this).find('.collapsible').collapse('toggle');
-        //$(this).toggleClass('active');
-    //});
+    $('#faq .accordion-card').click(function(e){
+        $(this).find('.collapsible').collapse('toggle');
+        $(this).toggleClass('active');
+    });
 
 // ====================================== Slick sliders ========================================
 
