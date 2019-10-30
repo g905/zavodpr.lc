@@ -119,7 +119,7 @@ $(()=>{
     function init(){
         let myMap = new ymaps.Map("ymapsContainer", {
             center: [55.76, 37.64],
-            zoom: 1,
+            zoom: 20,
             controls: []
         });
 
@@ -190,7 +190,7 @@ $(()=>{
             ]
         },
             {
-                boundsAutoApply: true
+                boundsAutoApply: false
             });
 
         myMap.behaviors.disable('scrollZoom');
@@ -199,7 +199,7 @@ $(()=>{
 
         route.events.add("boundschange", ()=>{
             myMap.setBounds(route.getBounds(), {
-                checkZoomRange: true
+                checkZoomRange: false
             })
         });
 
