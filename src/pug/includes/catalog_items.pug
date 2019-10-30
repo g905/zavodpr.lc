@@ -1,9 +1,13 @@
-.items.d-flex.flex-wrap.justify-content-around
+.catalog-items.d-flex.flex-wrap.justify-content-start
     - let n = 0
-    while n < 20
-        .catalog-item
-            .cat-card.text-center
+    while n < 10
+        .catalog-item.m-auto.mx-lg-0
+            .cat-card.text-center.mb-2.p-3.mr-0.mr-lg-2
                 img(src="img/Подраздел%20каталога/img-barrel-list.png")
-                .card-body.m-auto
-                    h5="test "+n
+                .card-body.p-0.m-auto
+                    .item-title
+                        h5="Название в две строчки " + n
+                .card-bottom.d-flex.justify-content-between
+                    button.btn.zavodpr-btn.blue-btn Узнать цену
+                    button.btn.zavodpr-btn Заказать
         - n++

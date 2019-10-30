@@ -1,3 +1,133 @@
-.filters
-    .cat-block
-        h3 test
+.filters.mr-3
+    ul.nav.flex-column.bg-white.mb-4
+        li.nav-item
+            a.nav-link.w-100.collapsed(href="#first" data-toggle="collapse" aria-expanded="false" aria-controls="first").accordion-card.d-flex.align-items-center.justify-content-between Для дизельного топлива
+                .arrow.d-none.d-lg-block.pr-3
+                    i.fa.fa-chevron-down
+            .collapse#first
+                ul.nav.flex-column.ml-3
+                    li.nav-item
+                        a.nav-link(href="#0") Депрессорно-диспергирующие
+                    li.nav-item
+                        a.nav-link(href="#0") Противоизносная (смазывающая) «BRAVOS Oiling»
+                    li.nav-item
+                        a.nav-link(href="#0") Цетаноповышающая «BRAVOS Cetane»
+        li.nav-item
+            a.accordion-card.d-flex.align-items-center.justify-content-between.nav-link.w-100.collapsed(href="#second" data-toggle="collapse" aria-expanded="false" aria-controls="second") Second
+                .arrow.d-none.d-lg-block.pr-3
+                    i.fa.fa-chevron-down
+            .collapse#second
+                ul.nav.flex-column.ml-3
+                    li.nav-item
+                        a.nav-link(href="#0") 1 Second
+                    li.nav-item
+                        a.nav-link(href="#0") 2 Second
+                    li.nav-item
+                        a.nav-link(href="#0") 3 Second
+        li.nav-item
+            a.nav-link.w-100.collapsed(href="#third" data-toggle="collapse" aria-expanded="false" aria-controls="third").accordion-card.d-flex.align-items-center.justify-content-between Third
+                .arrow.d-none.d-lg-block.pr-3
+                    i.fa.fa-chevron-down
+            .collapse#third
+                ul.nav.flex-column.ml-3
+                    li.nav-item
+                        a.nav-link(href="#0") 1 Third
+                    li.nav-item
+                        a.nav-link(href="#0") 2 Third
+    //.cat-block.mb-2.p-0
+        .accordion
+            .accordion-card.bg-white.pt-3.px-3.pb-0
+                .title.pb-3.d-flex.justify-content-between.align-items-center
+                    a(href="#")
+                        h4.m-0 Для дизельного топлива
+                    .arrow.d-none.d-lg-block
+                        i.fa.fa-chevron-down
+                .collapsible.collapse
+                    ul.py-3.ul-filters
+                        li.pb-1
+                            a(href="#") Депрессорно-диспергирующие
+                        li.pb-1
+                            a(href="#") Противоизносная (смазывающая) «BRAVOS Oiling»
+                        li.pb-1
+                            a(href="#") Цетаноповышающая «BRAVOS Cetane»
+            .accordion-card.bg-white.pt-3.px-3.pb-0
+                .title.pb-3.d-flex.justify-content-between.align-items-center
+                    a(href="#")
+                        h4.m-0 Для дизельного топлива
+                    .arrow.d-none.d-lg-block
+                        i.fa.fa-chevron-down
+                .collapsible.collapse
+                    ul.py-3.ul-filters
+                        li.pb-1
+                            a(href="#") Депрессорно-диспергирующие
+                        li.pb-1
+                            a(href="#") Противоизносная (смазывающая) «BRAVOS Oiling»
+                        li.pb-1
+                            a(href="#") Цетаноповышающая «BRAVOS Cetane»
+            .accordion-card.bg-white.pt-3.px-3.pb-0
+                .title.pb-3.d-flex.justify-content-between.align-items-center
+                    a(href="#")
+                        h4.m-0 Для дизельного топлива
+                    .arrow.d-none.d-lg-block
+                        i.fa.fa-chevron-down
+                .collapsible.collapse
+                    ul.py-3.ul-filters
+                        li.pb-1
+                            a(href="#") Депрессорно-диспергирующие
+                        li.pb-1
+                            a(href="#") Противоизносная (смазывающая) «BRAVOS Oiling»
+                        li.pb-1
+                            a(href="#") Цетаноповышающая «BRAVOS Cetane»
+
+
+    .cat-block.mb-2.p-0
+        .img-over
+            h4 Мы всегда на связи!
+            p.pt-1 Консультируем в офисе, при личной встрече, по Skype
+        img.w-100(src="img/Подраздел%20каталога/img-stay-connected.png")
+        ul.d-flex.flex-column
+            li.rightBtn
+                a(href="#one" role="tab" data-toggle="tab" aria-selected="true")
+                    <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17.3955 1L10.3955 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M10.3955 2V8H16.3955" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M7.89443 12.5004L5.89443 10.0004C8.89479 6.99998 5.89443 1.99989 1.89443 4.50042C-2.10411 8.5 8.39551 20.5 11.8944 17.5004C15.3944 14.0004 11.8944 10.0004 7.89443 12.5004Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    | Закзать звонок
+            li.rightBtn
+                a(href="#two" role="tab" data-toggle="tab")
+                    <svg width="19" height="15" viewBox="0 0 19 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 1H18M1 1V14M1 1L9.5 8.5L18 1M18 1V14M18 14H1M18 14L14 9.5M1 14L5 9.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    | Написать сообщение
+
+            li.rightBtn
+                a(href="#three" role="tab" data-toggle="tab")
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="7.5" cy="9" r="1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="12.5" cy="9" r="1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M8.5 5L7.5 8M13.5 5L12.5 8M5.5 14.5V18.5L10 14.5H18.5V1H1V14.5H5.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    | Оставить отзыв
+            li.rightBtn
+                a(href="#four" role="tab" data-toggle="tab")
+                    <svg width="15" height="20" viewBox="0 0 15 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7.94592 18.1326C7.7459 18.3437 7.5656 18.5293 7.41078 18.686C7.24451 18.5325 7.04955 18.3432 6.83178 18.1208C6.13517 17.4092 5.24293 16.3965 4.36496 15.2158C2.56769 12.7988 1 9.90177 1 7.5C1 3.91015 3.91015 1 7.5 1C11.0899 1 14 3.91015 14 7.5C14 8.66117 13.5996 9.9721 12.9308 11.3321C12.2667 12.6824 11.3707 14.0154 10.4574 15.2028C9.54625 16.3873 8.63265 17.4077 7.94592 18.1326Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="7.5" cy="7.5" r="3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    | Ближайший офис
+            li.rightBtn
+                a#calcBtn(href="#five" role="tab" data-toggle="tab")
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" class="svg">
+                    <rect x="1" y="1" width="20" height="20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M11 1V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M1 11H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M6 4V8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M4 6H8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M6.82812 15L3.9997 17.8284" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M4 15L6.82843 17.8284" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M14 6H18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M14 18H18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M14 15H18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    | Калькулятор

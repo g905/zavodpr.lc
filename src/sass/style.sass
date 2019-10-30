@@ -136,6 +136,7 @@ input[type=email]:focus,
 input[type=number]:focus,
 input[type=tel]:focus,
 input[type=submit]:focus,
+input[type=file]:focus,
 [type=text].form-control:focus,
 [type=password].form-control:focus,
 [type=email].form-control:focus,
@@ -371,6 +372,22 @@ input:checked + .sw-slider:before
   color: #fff!important
   border: 2px solid $white
   font-weight: bold
+
+// ========================================= Search ================================
+//.search-btn
+  width: 100%
+  width: 0
+  padding: 1rem
+  position: absolute
+  right: 0
+  text-align: right
+  float: right
+  background: white
+  height: 100%
+  display: flex
+  align-items: center
+  transition: all .2s ease-in-out
+
 // ====================================== Slick slider =============================
 
 .slick-slider
@@ -820,6 +837,26 @@ footer
         text-align: right
         font-size: .8rem
 
+// ================================= scrollTop button ==============================
+.scrollTop
+  position: fixed
+  bottom: 5rem
+  right: 5rem
+  border-radius: 2.5rem
+  background: $green
+  width: 3rem
+  height: 3rem
+  color: $white
+  opacity: .9
+  cursor: pointer
+  transition: $trans
+  display: flex
+  justify-content: center
+  align-items: center
+  transform: rotateZ(180deg)
+  &:hover
+    opacity: 1
+
 // ====================================== Modal ====================================
 
 // ====================================== PAGES ====================================
@@ -959,9 +996,6 @@ footer
     p
       margin: 0
       color: $gray
-  .switch-row
-    transform: scale(0.8)
-    transform-origin: left
   .catalog-row
     .left-bar
       width: 33%
@@ -971,6 +1005,7 @@ footer
       opacity: 1
       &.collapsed
         width: 0
+        height: 0
         opacity: 0
       .filters
         .cat-block
@@ -984,7 +1019,7 @@ footer
             h4
               font-weight: bold
           background: $white
-          ul
+          ul:not(.ul-filters)
             list-style-type: none
             li
               padding: 10px 0
@@ -1002,6 +1037,18 @@ footer
                   margin: 15px
     .catalog-items-wrap
       z-index: 999
+      .list-view
+        .catalog-item
+          flex-direction: row!important
+          flex-basis: 100%!important
+          .cat-card
+            width: 100%!important
+            display: flex
+            align-items: center
+            .card-bottom
+              width: 25%
+            img
+              width: unset!important
       .catalog-items
         .catalog-item
           display: flex
@@ -1025,8 +1072,28 @@ footer
             .card-bottom
               button
                 min-width: 45%
+  .ul-filters
+    list-style-type: none
+    color: $blue
+
+  .custom-tile
+    display: flex
+    .icon-list, .icon-tile
+      font-size: 2rem
+      color: $gray
+      transition: $trans
+      cursor: pointer
+      margin-left: 1rem
+      opacity: .8
+      &:hover
+        opacity: 1
+        color: $blue
+      &.active
+        opacity: 1
+        color: $blue
+        cursor: default
 @media screen and (max-width: 768px)
-  #subcategory
+  #subcategory, #items
     .category
       flex-basis: 100%
     .catalog-row
@@ -1078,3 +1145,32 @@ footer
   #ymapsContacts
     height: 500px
     width: 100%
+
+// ========================================= FAQ ====================================
+#faq,.filters
+  .accordion-card
+    .arrow
+      transition: $trans
+      transform: rotateX(180deg)
+      color: $gray
+    &.collapsed
+      .title
+        border-bottom: 1px solid $lgray
+      .arrow
+        transform: rotateX(0deg)
+    h5
+      margin: 0
+    p
+      margin: 0
+  #question
+    transition: $trans
+    &:hover
+      box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.15)
+.filters
+  .accordion-card
+    border: unset
+.custom-file
+  width: 91%
+.custom-file-label
+  &::after
+    border-radius: 0 1rem 1rem 0
